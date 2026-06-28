@@ -1,0 +1,22 @@
+Preferred industry-used Python libraries for a more formal version of this model:
+- FiPy: NIST finite-volume PDE solver in Python
+- SfePy: multi-material FEM heat-equation workflows
+This delivered script uses scipy sparse linear algebra to stay fast and avoid console hangs.
+
+SURFACE
+  Max temperature in stack   = 40257.59 °C
+  Max PCB-top temperature    = 40257.59 °C
+  Max outer-wall temperature = 39995.65 °C
+  Buck SiC MOSFET    y=  50.0 mm -> local top temperature = 40257.13 °C
+  PFC MOSFET         y= 120.0 mm -> local top temperature = 40110.42 °C
+  DC/DC primary      y= 190.0 mm -> local top temperature = 39768.98 °C
+  DC/DC SR           y= 250.0 mm -> local top temperature = 39567.19 °C
+
+SUBSEA
+  Max temperature in stack   = 3614.64 °C
+  Max PCB-top temperature    = 3614.64 °C
+  Max outer-wall temperature = 3348.75 °C
+  Buck SiC MOSFET    y=  50.0 mm -> local top temperature = 3614.64 °C
+  PFC MOSFET         y= 120.0 mm -> local top temperature = 3559.00 °C
+  DC/DC primary      y= 190.0 mm -> local top temperature = 3359.30 °C
+  DC/DC SR           y= 250.0 mm -> local top temperature = 3255.57 °C
