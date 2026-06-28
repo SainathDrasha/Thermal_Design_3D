@@ -8,3 +8,7 @@ __pycache__/
 
 # FreeCAD temporary/backups
 *~
+
+# Generated results
+sim3d_paraview/results/
+sim3d/results/
