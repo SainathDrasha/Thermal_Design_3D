@@ -173,8 +173,12 @@ def _outer_face_names(shape):
     return names
 
 
-def setup_analysis(doc, geo, classify, case):
-    """Assemble the FreeCAD FEM model: solver, materials, sources, BC, mesh."""
+def setup_analysis(doc, geo, classify, case, mesh_mm=6.0, second_order=False):
+    """Assemble the FreeCAD FEM model: solver, materials, sources, BC, mesh.
+
+    mesh_mm      : Gmsh CharacteristicLengthMax in mm (smaller = finer).
+    second_order : True -> quadratic C3D10 tets (accurate gradients), else C3D4.
+    """
     shape = geo.Shape
 
     analysis = ObjectsFem.makeAnalysis(doc, "Analysis")
@@ -276,7 +280,14 @@ def setup_analysis(doc, geo, classify, case):
     # loads reference -> node-matched across materials, every element tagged.
     femmesh = ObjectsFem.makeMeshGmsh(doc, "Mesh")
     femmesh.Shape = geo
-    femmesh.CharacteristicLengthMax = "6 mm"   # refine later for convergence
+    femmesh.CharacteristicLengthMax = f"{mesh_mm} mm"
+    if second_order:
+        # Quadratic tets (C3D10). Property name verified for FreeCAD 1.x MeshGmsh;
+        # guarded so a renamed property doesn't abort the solve.
+        try:
+            femmesh.ElementOrder = "2nd"
+        except Exception as e:                        # noqa: BLE001
+            App.Console.PrintWarning(f"Could not set 2nd order: {e}\n")
     doc.recompute()
 
     err = GmshTools(femmesh).create_mesh()
@@ -289,13 +300,14 @@ def setup_analysis(doc, geo, classify, case):
     return analysis, solver
 
 
-def solve_case(case_name, out_dir):
+def solve_case(case_name, out_dir, mesh_mm=6.0, second_order=False):
     """Run one operating-environment case head-less; return a result summary."""
     case = CASES[case_name]
     doc = App.newDocument(f"sem_freecad_{case_name}")
 
     geo, classify = build_geometry(doc)
-    analysis, solver = setup_analysis(doc, geo, classify, case)
+    analysis, solver = setup_analysis(doc, geo, classify, case,
+                                      mesh_mm=mesh_mm, second_order=second_order)
 
     fea = ccxtools.FemToolsCcx(analysis, solver)
     fea.update_objects()

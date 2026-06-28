@@ -86,23 +86,35 @@ conduction, no mechanics). Leave geometric nonlinearity *linear*.
 
 ---
 
-## 4. Assign materials (conductivity is all that matters here)
+## 4. Assign materials, including the thermal vias
 
-For each of the four materials, **Model → Material → Material for solid**, then in
-the task panel set **Thermal conductivity** and pick the solids under
-*References*:
+For each material, **Model → Material → Material for solid**, then in the task
+panel set **Thermal conductivity** and pick the solids under *References*:
 
 | Material | k (W/m·K) | Assign to |
 |----------|-----------|-----------|
-| FR-4 (PCB) | 0.30 | the PCB layer **and** all device boxes (the catch-all) |
+| FR-4 (PCB) | 0.30 | PCB remainder — **leave References EMPTY (catch-all)** |
+| **Via array** | **≈ 96.5** (`config.K_VIA`) | the **device through-PCB columns** (all device solids in one reference list) |
 | Aluminium  | 160  | the baseplate layer |
 | TIM        | 3.0  | the TIM layer |
 | SS316L     | 16   | the housing-wall layer |
 
+> 🔑 **The vias are what make the design realistic.** Each device's column
+> through the PCB is given the **via-array effective conductivity**, not bare
+> FR-4. The effective value is `k_via = f·k_cu + (1−f)·k_fr4` with copper
+> `k_cu = 385` and via-area fill fraction `f = 0.25` → **≈ 96.5 W/m·K**
+> (`config.K_VIA`, `config.VIA_FILL_FRACTION`). Without this the device columns
+> are k = 0.3 and junctions read hundreds of °C; with it, subsea devices drop to
+> ~30–34 °C. In the headless script this is automatic
+> (`config.VIA_COUPLED = True`); in the GUI you make it real by assigning the
+> device solids to the **Via array** material instead of FR-4. For the
+> pessimistic top-mount-through-FR-4 worst case, just leave the device columns on
+> FR-4 (or set `VIA_COUPLED = False`).
+
 > ⚠️ **Catch-all rule.** Leave exactly **one** material with an **empty
 > References list** — FreeCAD assigns every otherwise-unclaimed element to it.
-> Make **FR-4** the catch-all (empty references) and reference the three clean
-> single-solid layers explicitly. Otherwise you get *"no material assigned"*.
+> Make **FR-4** the catch-all (empty references); reference Via array, Aluminium,
+> TIM and SS316L explicitly. Otherwise you get *"no material assigned"*.
 > The elastic/specific-heat fields are ignored by a steady-state conduction
 > solve; only conductivity is used.
 
@@ -136,10 +148,14 @@ Constraint heat flux**, and in the task panel set:
   on this one face but scales it to the *whole housing area*:
   `h_eff = h · A_housing / A_face`. For subsea (`h=100`) that is ≈ 624 W/m²·K;
   for surface still-air (`h=8`) ≈ 49.9 W/m²·K. (`config.effective_h(case)`.)
-- **Ambient temperature →** 20 °C subsea, 85 °C surface.
+- **Ambient temperature →** 20 °C subsea, **50 °C surface** (the external
+  commissioning *air*; the 85 °C figure is the internal sealed-gas temperature,
+  not the external convection ambient).
 
 All faces with no constraint are treated as adiabatic (zero flux), so heat can
-only leave through this face.
+only leave through this face. This single-face area-scaling is a stand-in for the
+real cylindrical housing — see "Setting up with a STEP file" to replace it with
+true geometry.
 
 ---
 
@@ -183,37 +199,102 @@ mentally, or use the ParaView pipeline for a °C scale). Inspect:
 
 - The coolest conductive nodes should sit near the baseplate temperature you can
   predict by hand: `T_base = T_amb + P_total · R_external`
-  (≈ 29 °C subsea, ≈ 168 °C surface). If they don't, the BC or mesh is wrong.
+  (≈ 29 °C subsea, ≈ 133 °C surface at 50 °C air). If they don't, the BC or mesh
+  is wrong.
 - Each device's peak is its junction temperature *in this model* (loss injected
-  into the FR-4 layer).
+  into its column; with the via material that column is high-k, so the device
+  sits only ~1–2 °C above the baseplate). Expect subsea ~30–34 °C (PASS) and
+  surface ~132–140 °C (over the 125 °C limit → derate).
 
 ---
 
-## 10. Export to ParaView (optional, nicer visuals + the margin table)
+## 10. View and post-process in ParaView
 
-CalculiX writes `Mesh.frd` in the solver's working directory. Hand it to the
-`sim3d_paraview` pipeline:
+CalculiX writes `Mesh.frd` in the solver working directory. Convert it, then set
+up the scene. The automated pipeline does all of this for you
+(`python run_pipeline.py` → `results/<case>.png/.pvsm/.csv/_board_map.png`), but
+to drive ParaView by hand:
 
+**Convert**
 ```bash
-ccx2paraview Mesh.frd vtu     # -> Mesh.vtu, openable in ParaView
+ccx2paraview Mesh.frd vtu      # -> Mesh.vtu  (nodal temp = NT [K], heat flux = FLUX)
 ```
 
-or just run `python run_pipeline.py --from convert` after copying the `.frd` to
-`results/<case>.frd`. That gives the cut-away render, the over-limit isosurface,
-the `.pvsm` state, and the per-device margin CSV.
+**Open and colour**
+1. **File → Open** → the `.vtu` → **Apply**.
+2. Colour dropdown → **NT** (Kelvin). For °C, add **Filters → Common → Calculator**,
+   Attribute *Point Data*, expression `NT - 273.15`, name it `Temperature_C`, Apply,
+   and colour by that.
+3. **Edit Color Map** → **Rescale to Custom Range** → **50 to 125** so blue = cool
+   margin and red = at the junction limit. Pick the **Turbo** preset.
+
+**See inside (the hot spots are buried in the stack)**
+4. **Filters → Common → Clip**, Plane type, leave it through the centre, Apply — a
+   cut-away cross-section showing the internal gradient.
+5. **Filters → Common → Contour** on `Temperature_C` at **125** → the red
+   over-limit isosurface (the at-risk volume at a glance).
+
+**See the heat flow**
+6. **Filters → Common → Glyph**, Glyph Type *Arrow*, Orientation Array **FLUX**,
+   Scale Array **FLUX**, Scale Factor a few mm, Glyph Mode *Every Nth Point* →
+   arrows showing where and how strongly heat flows toward the housing face.
+
+**Quantify**
+7. **Filters → Data Analysis → Plot Over Line**, draw it vertically through a hot
+   device, Apply — the T profile across PCB → Al → TIM → housing shows *which*
+   interface eats the ΔT.
+8. Hover-points / **Find Data** reads any node's exact temperature.
+
+**Reuse**: the pipeline saves a `.pvsm` per case — **File → Load State →
+`results/<case>.pvsm`** restores the whole scene (clip, colormap, isosurface,
+housing cylinder, flux glyphs) instantly. The grey see-through cylinder in that
+scene is the **visual housing reference only** — it is not simulated.
+
+---
+
+## 11. Setting up with a STEP file (real geometry + real housing)
+
+The steps above use the parametric block stack. To solve real CAD — and to turn
+the housing into actual solved geometry instead of the area-scaled boundary
+condition — swap only the geometry; steps 2–10 are unchanged.
+
+1. **Import the STEP.** **File → Import** → your `.step` (or in the Python
+   console `import Import; Import.insert("/path/sem.step", doc.Name)`). You get
+   one solid per body (PCB, baseplate, devices, housing, …).
+2. **Make one conformal solid.** Select all imported solids → **Part workbench →
+   Boolean → Boolean Fragments** (or `BOPTools`), then consolidate into a single
+   `Part::Feature` named `Stack`. The mesh and *every* material/load reference
+   must point at this one object (same rule as step 1).
+3. **Materials (step 4) by picking solids.** Now you select the *real* bodies:
+   assign Aluminium to the baseplate/rail, SS316L to the **housing**, the Via
+   array to the device columns, etc., FR-4 as the empty-reference catch-all.
+4. **Heat sources (step 5)** on the real device bodies, Total Power = each loss.
+5. **Convection on the REAL housing faces (step 6), and drop the area trick.**
+   Select the housing's outer cylindrical faces for the **Constraint heat flux →
+   Convection**, and use the *true* coefficient `case.h` (subsea 100, surface 8)
+   — **not** the scaled `effective_h`. In `config.py` set
+   `USE_HOUSING_AREA = False`; the scaling only existed to fake the housing area
+   that you now have as real geometry.
+6. **Mesh (step 8).** Keep elements small through the thin PCB/TIM layers
+   (local refinement) and coarser in the bulk housing; second order on.
+7. **Solve and view (steps 9–10)** exactly as before — now the housing shows its
+   own temperature field and the board→rail→housing→fluid conjugate path is real.
+
+> The STEP file never leaves your machine — the whole toolchain runs locally.
 
 ---
 
 ## Modelling caveats (so you read the numbers correctly)
 
-- **No thermal-via coupling.** Device losses go into bare FR-4 (k = 0.3), so the
-  through-plane resistance is huge and absolute junction temperatures are
-  pessimistic — the subsea FEM shows MOSFETs ~270 °C while the via-coupled hand
-  calc / SfePy model give ~40–75 °C. To make the numbers real, model the via
-  array under each device (a high-k column through the PCB) or bottom-mount the
-  device to the baseplate. This is a **geometry** change in step 1.
+- **Via fill fraction is assumed.** The via material uses `f = 0.25` area fill
+  (`config.VIA_FILL_FRACTION`) → k ≈ 96.5 W/m·K. This is what gives the realistic
+  ~30 °C subsea junctions; set `VIA_COUPLED = False` (device columns on FR-4) for
+  the pessimistic worst case, and adjust `f` to your real array.
 - **One junction limit (125 °C) for all parts.** Real limits differ (SiC ~175 °C,
-  magnetics/electrolytics lower).
-- **Single convective face with area scaling**, not a true conjugate housing
-  mesh. Good for a first-order rejection check; a full cylindrical housing needs
-  the STEP geometry.
+  magnetics/electrolytics lower) — edit per part.
+- **Housing is an area-scaled boundary condition, not geometry** (until you do
+  step 11). Good for a first-order rejection check; the surface-case housing
+  temperature is only first-order until the STEP/conjugate model is built.
+- **No contact resistances** (die-attach, board-to-rail, TIM contact beyond the
+  bulk layer). Real interfaces add resistance, so true temperatures run a bit
+  higher than this model.
