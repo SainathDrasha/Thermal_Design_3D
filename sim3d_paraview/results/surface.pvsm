@@ -213,1027 +213,1027 @@
         <Domain name="range" id="636.NumberOfTableValues.range"/>
       </Property>
       <Property name="RGBPoints" id="636.RGBPoints" number_of_elements="1024">
-        <Element index="0" value="123.44400000000002"/>
+        <Element index="0" value="123.43900000000002"/>
         <Element index="1" value="0.18995"/>
         <Element index="2" value="0.07176"/>
         <Element index="3" value="0.23217"/>
-        <Element index="4" value="123.50861620320002"/>
+        <Element index="4" value="123.50341620160002"/>
         <Element index="5" value="0.19483"/>
         <Element index="6" value="0.08339"/>
         <Element index="7" value="0.26149"/>
-        <Element index="8" value="123.5732307587"/>
+        <Element index="8" value="123.56783076060002"/>
         <Element index="9" value="0.19956"/>
         <Element index="10" value="0.09498"/>
         <Element index="11" value="0.29024"/>
-        <Element index="12" value="123.63785190500002"/>
+        <Element index="12" value="123.63225189000002"/>
         <Element index="13" value="0.20415"/>
         <Element index="14" value="0.10652"/>
         <Element index="15" value="0.31844"/>
-        <Element index="16" value="123.70245822200002"/>
+        <Element index="16" value="123.69665823600002"/>
         <Element index="17" value="0.2086"/>
         <Element index="18" value="0.11802"/>
         <Element index="19" value="0.34607"/>
-        <Element index="20" value="123.76708101600002"/>
+        <Element index="20" value="123.76108100800002"/>
         <Element index="21" value="0.21291"/>
         <Element index="22" value="0.12947"/>
         <Element index="23" value="0.37314"/>
-        <Element index="24" value="123.83168733300002"/>
+        <Element index="24" value="123.82548735400002"/>
         <Element index="25" value="0.21708"/>
         <Element index="26" value="0.14087"/>
         <Element index="27" value="0.39964"/>
-        <Element index="28" value="123.89631012700002"/>
+        <Element index="28" value="123.88991012600002"/>
         <Element index="29" value="0.22111"/>
         <Element index="30" value="0.15223"/>
         <Element index="31" value="0.42558"/>
-        <Element index="32" value="123.96093292100001"/>
+        <Element index="32" value="123.95433289800003"/>
         <Element index="33" value="0.225"/>
         <Element index="34" value="0.16354"/>
         <Element index="35" value="0.45096"/>
-        <Element index="36" value="124.02553923800002"/>
+        <Element index="36" value="124.01873924400002"/>
         <Element index="37" value="0.22875"/>
         <Element index="38" value="0.17481"/>
         <Element index="39" value="0.47578"/>
-        <Element index="40" value="124.09016203200001"/>
+        <Element index="40" value="124.08316201600003"/>
         <Element index="41" value="0.23236"/>
         <Element index="42" value="0.18603"/>
         <Element index="43" value="0.50004"/>
-        <Element index="44" value="124.15476834900002"/>
+        <Element index="44" value="124.14756836200002"/>
         <Element index="45" value="0.23582"/>
         <Element index="46" value="0.1972"/>
         <Element index="47" value="0.52373"/>
-        <Element index="48" value="124.21939114300001"/>
+        <Element index="48" value="124.21199113400003"/>
         <Element index="49" value="0.23915"/>
         <Element index="50" value="0.20833"/>
         <Element index="51" value="0.54686"/>
-        <Element index="52" value="124.28399746000002"/>
+        <Element index="52" value="124.27639748000001"/>
         <Element index="53" value="0.24234"/>
         <Element index="54" value="0.21941"/>
         <Element index="55" value="0.56942"/>
-        <Element index="56" value="124.34862025400001"/>
+        <Element index="56" value="124.34082025200003"/>
         <Element index="57" value="0.24539"/>
         <Element index="58" value="0.23044"/>
         <Element index="59" value="0.59142"/>
-        <Element index="60" value="124.41324304800003"/>
+        <Element index="60" value="124.40524302400003"/>
         <Element index="61" value="0.2483"/>
         <Element index="62" value="0.24143"/>
         <Element index="63" value="0.61286"/>
-        <Element index="64" value="124.47784936500001"/>
+        <Element index="64" value="124.46964937000001"/>
         <Element index="65" value="0.25107"/>
         <Element index="66" value="0.25237"/>
         <Element index="67" value="0.63374"/>
-        <Element index="68" value="124.54247215900001"/>
+        <Element index="68" value="124.53407214200003"/>
         <Element index="69" value="0.25369"/>
         <Element index="70" value="0.26327"/>
         <Element index="71" value="0.65406"/>
-        <Element index="72" value="124.60707847600001"/>
+        <Element index="72" value="124.59847848800001"/>
         <Element index="73" value="0.25618"/>
         <Element index="74" value="0.27412"/>
         <Element index="75" value="0.67381"/>
-        <Element index="76" value="124.67170127000001"/>
+        <Element index="76" value="124.66290126000003"/>
         <Element index="77" value="0.25853"/>
         <Element index="78" value="0.28492"/>
         <Element index="79" value="0.693"/>
-        <Element index="80" value="124.73630758700001"/>
+        <Element index="80" value="124.72730760600001"/>
         <Element index="81" value="0.26074"/>
         <Element index="82" value="0.29568"/>
         <Element index="83" value="0.71162"/>
-        <Element index="84" value="124.80093038100001"/>
+        <Element index="84" value="124.79173037800003"/>
         <Element index="85" value="0.2628"/>
         <Element index="86" value="0.30639"/>
         <Element index="87" value="0.72968"/>
-        <Element index="88" value="124.86555317500003"/>
+        <Element index="88" value="124.85615315000003"/>
         <Element index="89" value="0.26473"/>
         <Element index="90" value="0.31706"/>
         <Element index="91" value="0.74718"/>
-        <Element index="92" value="124.93015949200002"/>
+        <Element index="92" value="124.92055949600002"/>
         <Element index="93" value="0.26652"/>
         <Element index="94" value="0.32768"/>
         <Element index="95" value="0.76412"/>
-        <Element index="96" value="124.99478228600003"/>
+        <Element index="96" value="124.98498226800002"/>
         <Element index="97" value="0.26816"/>
         <Element index="98" value="0.33825"/>
         <Element index="99" value="0.7805"/>
-        <Element index="100" value="125.05938860300002"/>
+        <Element index="100" value="125.04938861400002"/>
         <Element index="101" value="0.26967"/>
         <Element index="102" value="0.34878"/>
         <Element index="103" value="0.79631"/>
-        <Element index="104" value="125.12399492000003"/>
+        <Element index="104" value="125.11379496000002"/>
         <Element index="105" value="0.27103"/>
         <Element index="106" value="0.35926"/>
         <Element index="107" value="0.81156"/>
-        <Element index="108" value="125.18858476000003"/>
+        <Element index="108" value="125.17818488000002"/>
         <Element index="109" value="0.27226"/>
         <Element index="110" value="0.3697"/>
         <Element index="111" value="0.82624"/>
-        <Element index="112" value="125.25317460000002"/>
+        <Element index="112" value="125.24257480000001"/>
         <Element index="113" value="0.27334"/>
         <Element index="114" value="0.38008"/>
         <Element index="115" value="0.84037"/>
-        <Element index="116" value="125.31792921000003"/>
+        <Element index="116" value="125.30712898000002"/>
         <Element index="117" value="0.27429"/>
         <Element index="118" value="0.39043"/>
         <Element index="119" value="0.85393"/>
-        <Element index="120" value="125.38251905000001"/>
+        <Element index="120" value="125.37151890000003"/>
         <Element index="121" value="0.27509"/>
         <Element index="122" value="0.40072"/>
         <Element index="123" value="0.86692"/>
-        <Element index="124" value="125.44710889000001"/>
+        <Element index="124" value="125.43590882000002"/>
         <Element index="125" value="0.27576"/>
         <Element index="126" value="0.41097"/>
         <Element index="127" value="0.87936"/>
-        <Element index="128" value="125.51169873000002"/>
+        <Element index="128" value="125.50029874000002"/>
         <Element index="129" value="0.27628"/>
         <Element index="130" value="0.42118"/>
         <Element index="131" value="0.89123"/>
-        <Element index="132" value="125.57628857000002"/>
+        <Element index="132" value="125.56468866000002"/>
         <Element index="133" value="0.27667"/>
         <Element index="134" value="0.43134"/>
         <Element index="135" value="0.90254"/>
-        <Element index="136" value="125.64087841000003"/>
+        <Element index="136" value="125.62907858000001"/>
         <Element index="137" value="0.27691"/>
         <Element index="138" value="0.44145"/>
         <Element index="139" value="0.91328"/>
-        <Element index="140" value="125.70546825000002"/>
+        <Element index="140" value="125.69346850000002"/>
         <Element index="141" value="0.27701"/>
         <Element index="142" value="0.45152"/>
         <Element index="143" value="0.92347"/>
-        <Element index="144" value="125.77022286000002"/>
+        <Element index="144" value="125.75802268000002"/>
         <Element index="145" value="0.27698"/>
         <Element index="146" value="0.46153"/>
         <Element index="147" value="0.93309"/>
-        <Element index="148" value="125.83481270000003"/>
+        <Element index="148" value="125.82241260000002"/>
         <Element index="149" value="0.2768"/>
         <Element index="150" value="0.47151"/>
         <Element index="151" value="0.94214"/>
-        <Element index="152" value="125.89940254000003"/>
+        <Element index="152" value="125.88680252000003"/>
         <Element index="153" value="0.27648"/>
         <Element index="154" value="0.48144"/>
         <Element index="155" value="0.95064"/>
-        <Element index="156" value="125.96399238000002"/>
+        <Element index="156" value="125.95119244000003"/>
         <Element index="157" value="0.27603"/>
         <Element index="158" value="0.49132"/>
         <Element index="159" value="0.95857"/>
-        <Element index="160" value="126.02858222000002"/>
+        <Element index="160" value="126.01558236000002"/>
         <Element index="161" value="0.27543"/>
         <Element index="162" value="0.50115"/>
         <Element index="163" value="0.96594"/>
-        <Element index="164" value="126.09317206000001"/>
+        <Element index="164" value="126.07997228000002"/>
         <Element index="165" value="0.27469"/>
         <Element index="166" value="0.51094"/>
         <Element index="167" value="0.97275"/>
-        <Element index="168" value="126.15792667000001"/>
+        <Element index="168" value="126.14452646000002"/>
         <Element index="169" value="0.27381"/>
         <Element index="170" value="0.52069"/>
         <Element index="171" value="0.97899"/>
-        <Element index="172" value="126.22251651000002"/>
+        <Element index="172" value="126.20891638000002"/>
         <Element index="173" value="0.27273"/>
         <Element index="174" value="0.5304"/>
         <Element index="175" value="0.98461"/>
-        <Element index="176" value="126.28710635000002"/>
+        <Element index="176" value="126.27330630000002"/>
         <Element index="177" value="0.27106"/>
         <Element index="178" value="0.54015"/>
         <Element index="179" value="0.9893"/>
-        <Element index="180" value="126.35169619000003"/>
+        <Element index="180" value="126.33769622000001"/>
         <Element index="181" value="0.26878"/>
         <Element index="182" value="0.54995"/>
         <Element index="183" value="0.99303"/>
-        <Element index="184" value="126.41628603000002"/>
+        <Element index="184" value="126.40208614000002"/>
         <Element index="185" value="0.26592"/>
         <Element index="186" value="0.55979"/>
         <Element index="187" value="0.99583"/>
-        <Element index="188" value="126.48087587000002"/>
+        <Element index="188" value="126.46647606000002"/>
         <Element index="189" value="0.26252"/>
         <Element index="190" value="0.56967"/>
         <Element index="191" value="0.99773"/>
-        <Element index="192" value="126.54563048000003"/>
+        <Element index="192" value="126.53103024000002"/>
         <Element index="193" value="0.25862"/>
         <Element index="194" value="0.57958"/>
         <Element index="195" value="0.99876"/>
-        <Element index="196" value="126.61022032000002"/>
+        <Element index="196" value="126.59542016000002"/>
         <Element index="197" value="0.25425"/>
         <Element index="198" value="0.5895"/>
         <Element index="199" value="0.99896"/>
-        <Element index="200" value="126.67481016000002"/>
+        <Element index="200" value="126.65981008000003"/>
         <Element index="201" value="0.24946"/>
         <Element index="202" value="0.59943"/>
         <Element index="203" value="0.99835"/>
-        <Element index="204" value="126.73940000000003"/>
+        <Element index="204" value="126.72420000000002"/>
         <Element index="205" value="0.24427"/>
         <Element index="206" value="0.60937"/>
         <Element index="207" value="0.99697"/>
-        <Element index="208" value="126.80398984000001"/>
+        <Element index="208" value="126.78858992000002"/>
         <Element index="209" value="0.23874"/>
         <Element index="210" value="0.61931"/>
         <Element index="211" value="0.99485"/>
-        <Element index="212" value="126.86857968000002"/>
+        <Element index="212" value="126.85297984000002"/>
         <Element index="213" value="0.23288"/>
         <Element index="214" value="0.62923"/>
         <Element index="215" value="0.99202"/>
-        <Element index="216" value="126.93316952000002"/>
+        <Element index="216" value="126.91736976000003"/>
         <Element index="217" value="0.22676"/>
         <Element index="218" value="0.63913"/>
         <Element index="219" value="0.98851"/>
-        <Element index="220" value="126.99792413000002"/>
+        <Element index="220" value="126.98192394000002"/>
         <Element index="221" value="0.22039"/>
         <Element index="222" value="0.64901"/>
         <Element index="223" value="0.98436"/>
-        <Element index="224" value="127.06251397000003"/>
+        <Element index="224" value="127.04631386000001"/>
         <Element index="225" value="0.21382"/>
         <Element index="226" value="0.65886"/>
         <Element index="227" value="0.97959"/>
-        <Element index="228" value="127.12710381000002"/>
+        <Element index="228" value="127.11070378000001"/>
         <Element index="229" value="0.20708"/>
         <Element index="230" value="0.66866"/>
         <Element index="231" value="0.97423"/>
-        <Element index="232" value="127.19169365000002"/>
+        <Element index="232" value="127.17509370000002"/>
         <Element index="233" value="0.20021"/>
         <Element index="234" value="0.67842"/>
         <Element index="235" value="0.96833"/>
-        <Element index="236" value="127.25628349000003"/>
+        <Element index="236" value="127.23948362000002"/>
         <Element index="237" value="0.19326"/>
         <Element index="238" value="0.68812"/>
         <Element index="239" value="0.9619"/>
-        <Element index="240" value="127.32087333000003"/>
+        <Element index="240" value="127.30387354000001"/>
         <Element index="241" value="0.18625"/>
         <Element index="242" value="0.69775"/>
         <Element index="243" value="0.95498"/>
-        <Element index="244" value="127.38562794000002"/>
+        <Element index="244" value="127.36842772000001"/>
         <Element index="245" value="0.17923"/>
         <Element index="246" value="0.70732"/>
         <Element index="247" value="0.94761"/>
-        <Element index="248" value="127.45021778000003"/>
+        <Element index="248" value="127.43281764000002"/>
         <Element index="249" value="0.17223"/>
         <Element index="250" value="0.7168"/>
         <Element index="251" value="0.93981"/>
-        <Element index="252" value="127.51480762000003"/>
+        <Element index="252" value="127.49720756000002"/>
         <Element index="253" value="0.16529"/>
         <Element index="254" value="0.7262"/>
         <Element index="255" value="0.93161"/>
-        <Element index="256" value="127.57939746000002"/>
+        <Element index="256" value="127.56159748000002"/>
         <Element index="257" value="0.15844"/>
         <Element index="258" value="0.73551"/>
         <Element index="259" value="0.92305"/>
-        <Element index="260" value="127.64398730000002"/>
+        <Element index="260" value="127.62598740000001"/>
         <Element index="261" value="0.15173"/>
         <Element index="262" value="0.74472"/>
         <Element index="263" value="0.91416"/>
-        <Element index="264" value="127.70857714000002"/>
+        <Element index="264" value="127.69037732000002"/>
         <Element index="265" value="0.14519"/>
         <Element index="266" value="0.75381"/>
         <Element index="267" value="0.90496"/>
-        <Element index="268" value="127.77333175000003"/>
+        <Element index="268" value="127.75493150000003"/>
         <Element index="269" value="0.13886"/>
         <Element index="270" value="0.76279"/>
         <Element index="271" value="0.8955"/>
-        <Element index="272" value="127.83792159000002"/>
+        <Element index="272" value="127.81932142000002"/>
         <Element index="273" value="0.13278"/>
         <Element index="274" value="0.77165"/>
         <Element index="275" value="0.8858"/>
-        <Element index="276" value="127.90251143000002"/>
+        <Element index="276" value="127.88371134000002"/>
         <Element index="277" value="0.12698"/>
         <Element index="278" value="0.78037"/>
         <Element index="279" value="0.8759"/>
-        <Element index="280" value="127.96710127000003"/>
+        <Element index="280" value="127.94810126000003"/>
         <Element index="281" value="0.12151"/>
         <Element index="282" value="0.78896"/>
         <Element index="283" value="0.86581"/>
-        <Element index="284" value="128.03169111000003"/>
+        <Element index="284" value="128.01249118"/>
         <Element index="285" value="0.11639"/>
         <Element index="286" value="0.7974"/>
         <Element index="287" value="0.85559"/>
-        <Element index="288" value="128.09628095000002"/>
+        <Element index="288" value="128.0768811"/>
         <Element index="289" value="0.11167"/>
         <Element index="290" value="0.80569"/>
         <Element index="291" value="0.84525"/>
-        <Element index="292" value="128.16087079000002"/>
+        <Element index="292" value="128.14127102"/>
         <Element index="293" value="0.10738"/>
         <Element index="294" value="0.81381"/>
         <Element index="295" value="0.83484"/>
-        <Element index="296" value="128.22562540000004"/>
+        <Element index="296" value="128.20582520000002"/>
         <Element index="297" value="0.10357"/>
         <Element index="298" value="0.82177"/>
         <Element index="299" value="0.82437"/>
-        <Element index="300" value="128.29021524000004"/>
+        <Element index="300" value="128.27021512000002"/>
         <Element index="301" value="0.10026"/>
         <Element index="302" value="0.82955"/>
         <Element index="303" value="0.81389"/>
-        <Element index="304" value="128.35480508000003"/>
+        <Element index="304" value="128.33460504000004"/>
         <Element index="305" value="0.0975"/>
         <Element index="306" value="0.83714"/>
         <Element index="307" value="0.80342"/>
-        <Element index="308" value="128.41939492000003"/>
+        <Element index="308" value="128.39899496000004"/>
         <Element index="309" value="0.09532"/>
         <Element index="310" value="0.84455"/>
         <Element index="311" value="0.79299"/>
-        <Element index="312" value="128.48398476000003"/>
+        <Element index="312" value="128.46338488000004"/>
         <Element index="313" value="0.09377"/>
         <Element index="314" value="0.85175"/>
         <Element index="315" value="0.78264"/>
-        <Element index="316" value="128.54857460000005"/>
+        <Element index="316" value="128.52777480000003"/>
         <Element index="317" value="0.09287"/>
         <Element index="318" value="0.85875"/>
         <Element index="319" value="0.7724"/>
-        <Element index="320" value="128.61332921000002"/>
+        <Element index="320" value="128.59232898000002"/>
         <Element index="321" value="0.09267"/>
         <Element index="322" value="0.86554"/>
         <Element index="323" value="0.7623"/>
-        <Element index="324" value="128.67791905"/>
+        <Element index="324" value="128.65671890000002"/>
         <Element index="325" value="0.0932"/>
         <Element index="326" value="0.87211"/>
         <Element index="327" value="0.75237"/>
-        <Element index="328" value="128.74250889000004"/>
+        <Element index="328" value="128.72110882"/>
         <Element index="329" value="0.09451"/>
         <Element index="330" value="0.87844"/>
         <Element index="331" value="0.74265"/>
-        <Element index="332" value="128.80709873000004"/>
+        <Element index="332" value="128.78549874"/>
         <Element index="333" value="0.09662"/>
         <Element index="334" value="0.88454"/>
         <Element index="335" value="0.73316"/>
-        <Element index="336" value="128.87168857000003"/>
+        <Element index="336" value="128.84988866000003"/>
         <Element index="337" value="0.09958"/>
         <Element index="338" value="0.8904"/>
         <Element index="339" value="0.72393"/>
-        <Element index="340" value="128.93627841000003"/>
+        <Element index="340" value="128.91427858000003"/>
         <Element index="341" value="0.10342"/>
         <Element index="342" value="0.896"/>
         <Element index="343" value="0.715"/>
-        <Element index="344" value="129.00086825000002"/>
+        <Element index="344" value="128.97866850000003"/>
         <Element index="345" value="0.10815"/>
         <Element index="346" value="0.90142"/>
         <Element index="347" value="0.70599"/>
-        <Element index="348" value="129.06562286000002"/>
+        <Element index="348" value="129.04322268"/>
         <Element index="349" value="0.11374"/>
         <Element index="350" value="0.90673"/>
         <Element index="351" value="0.69651"/>
-        <Element index="352" value="129.13021270000002"/>
+        <Element index="352" value="129.1076126"/>
         <Element index="353" value="0.12014"/>
         <Element index="354" value="0.91193"/>
         <Element index="355" value="0.6866"/>
-        <Element index="356" value="129.19480254"/>
+        <Element index="356" value="129.17200252"/>
         <Element index="357" value="0.12733"/>
         <Element index="358" value="0.91701"/>
         <Element index="359" value="0.67627"/>
-        <Element index="360" value="129.25939238000004"/>
+        <Element index="360" value="129.23639244"/>
         <Element index="361" value="0.13526"/>
         <Element index="362" value="0.92197"/>
         <Element index="363" value="0.66556"/>
-        <Element index="364" value="129.32398222000003"/>
+        <Element index="364" value="129.30078236"/>
         <Element index="365" value="0.14391"/>
         <Element index="366" value="0.9268"/>
         <Element index="367" value="0.65448"/>
-        <Element index="368" value="129.38857206000003"/>
+        <Element index="368" value="129.36517228000002"/>
         <Element index="369" value="0.15323"/>
         <Element index="370" value="0.93151"/>
         <Element index="371" value="0.64308"/>
-        <Element index="372" value="129.45332667000005"/>
+        <Element index="372" value="129.42972646"/>
         <Element index="373" value="0.16319"/>
         <Element index="374" value="0.93609"/>
         <Element index="375" value="0.63137"/>
-        <Element index="376" value="129.51791651000002"/>
+        <Element index="376" value="129.49411638"/>
         <Element index="377" value="0.17377"/>
         <Element index="378" value="0.94053"/>
         <Element index="379" value="0.61938"/>
-        <Element index="380" value="129.58250635000002"/>
+        <Element index="380" value="129.5585063"/>
         <Element index="381" value="0.18491"/>
         <Element index="382" value="0.94484"/>
         <Element index="383" value="0.60713"/>
-        <Element index="384" value="129.64709619"/>
+        <Element index="384" value="129.62289622000003"/>
         <Element index="385" value="0.19659"/>
         <Element index="386" value="0.94901"/>
         <Element index="387" value="0.59466"/>
-        <Element index="388" value="129.71168603"/>
+        <Element index="388" value="129.68728614000003"/>
         <Element index="389" value="0.20877"/>
         <Element index="390" value="0.95304"/>
         <Element index="391" value="0.58199"/>
-        <Element index="392" value="129.77627587000003"/>
+        <Element index="392" value="129.75167606000002"/>
         <Element index="393" value="0.22142"/>
         <Element index="394" value="0.95692"/>
         <Element index="395" value="0.56914"/>
-        <Element index="396" value="129.84103048000003"/>
+        <Element index="396" value="129.81623024"/>
         <Element index="397" value="0.23449"/>
         <Element index="398" value="0.96065"/>
         <Element index="399" value="0.55614"/>
-        <Element index="400" value="129.90562032000003"/>
+        <Element index="400" value="129.88062016000003"/>
         <Element index="401" value="0.24797"/>
         <Element index="402" value="0.96423"/>
         <Element index="403" value="0.54303"/>
-        <Element index="404" value="129.97021016000005"/>
+        <Element index="404" value="129.94501008000003"/>
         <Element index="405" value="0.2618"/>
         <Element index="406" value="0.96765"/>
         <Element index="407" value="0.52981"/>
-        <Element index="408" value="130.03480000000005"/>
+        <Element index="408" value="130.00940000000003"/>
         <Element index="409" value="0.27597"/>
         <Element index="410" value="0.97092"/>
         <Element index="411" value="0.51653"/>
-        <Element index="412" value="130.09938984000004"/>
+        <Element index="412" value="130.07378992000002"/>
         <Element index="413" value="0.29042"/>
         <Element index="414" value="0.97403"/>
         <Element index="415" value="0.50321"/>
-        <Element index="416" value="130.16397968"/>
+        <Element index="416" value="130.13817984000002"/>
         <Element index="417" value="0.30513"/>
         <Element index="418" value="0.97697"/>
         <Element index="419" value="0.48987"/>
-        <Element index="420" value="130.22856952"/>
+        <Element index="420" value="130.20256976000002"/>
         <Element index="421" value="0.32006"/>
         <Element index="422" value="0.97974"/>
         <Element index="423" value="0.47654"/>
-        <Element index="424" value="130.29332413000003"/>
+        <Element index="424" value="130.26712394"/>
         <Element index="425" value="0.33517"/>
         <Element index="426" value="0.98234"/>
         <Element index="427" value="0.46325"/>
-        <Element index="428" value="130.35791397000003"/>
+        <Element index="428" value="130.33151386"/>
         <Element index="429" value="0.35043"/>
         <Element index="430" value="0.98477"/>
         <Element index="431" value="0.45002"/>
-        <Element index="432" value="130.42250381000002"/>
+        <Element index="432" value="130.39590378000003"/>
         <Element index="433" value="0.36581"/>
         <Element index="434" value="0.98702"/>
         <Element index="435" value="0.43688"/>
-        <Element index="436" value="130.48709365000005"/>
+        <Element index="436" value="130.46029370000002"/>
         <Element index="437" value="0.38127"/>
         <Element index="438" value="0.98909"/>
         <Element index="439" value="0.42386"/>
-        <Element index="440" value="130.55168349000004"/>
+        <Element index="440" value="130.52468362000002"/>
         <Element index="441" value="0.39678"/>
         <Element index="442" value="0.99098"/>
         <Element index="443" value="0.41098"/>
-        <Element index="444" value="130.61627333000004"/>
+        <Element index="444" value="130.58907354000002"/>
         <Element index="445" value="0.41229"/>
         <Element index="446" value="0.99268"/>
         <Element index="447" value="0.39826"/>
-        <Element index="448" value="130.68102794000004"/>
+        <Element index="448" value="130.65362772"/>
         <Element index="449" value="0.42778"/>
         <Element index="450" value="0.99419"/>
         <Element index="451" value="0.38575"/>
-        <Element index="452" value="130.74561778000003"/>
+        <Element index="452" value="130.71801764"/>
         <Element index="453" value="0.44321"/>
         <Element index="454" value="0.99551"/>
         <Element index="455" value="0.37345"/>
-        <Element index="456" value="130.81020762000003"/>
+        <Element index="456" value="130.78240756"/>
         <Element index="457" value="0.45854"/>
         <Element index="458" value="0.99663"/>
         <Element index="459" value="0.3614"/>
-        <Element index="460" value="130.87479746000002"/>
+        <Element index="460" value="130.84679748"/>
         <Element index="461" value="0.47375"/>
         <Element index="462" value="0.99755"/>
         <Element index="463" value="0.34963"/>
-        <Element index="464" value="130.93938730000002"/>
+        <Element index="464" value="130.91118740000002"/>
         <Element index="465" value="0.48879"/>
         <Element index="466" value="0.99828"/>
         <Element index="467" value="0.33816"/>
-        <Element index="468" value="131.00397714000005"/>
+        <Element index="468" value="130.97557732"/>
         <Element index="469" value="0.50362"/>
         <Element index="470" value="0.99879"/>
         <Element index="471" value="0.32701"/>
-        <Element index="472" value="131.06873175"/>
+        <Element index="472" value="131.04013150000003"/>
         <Element index="473" value="0.51822"/>
         <Element index="474" value="0.9991"/>
         <Element index="475" value="0.31622"/>
-        <Element index="476" value="131.13332159"/>
+        <Element index="476" value="131.10452142000003"/>
         <Element index="477" value="0.53255"/>
         <Element index="478" value="0.99919"/>
         <Element index="479" value="0.30581"/>
-        <Element index="480" value="131.19791143000003"/>
+        <Element index="480" value="131.16891134000002"/>
         <Element index="481" value="0.54658"/>
         <Element index="482" value="0.99907"/>
         <Element index="483" value="0.29581"/>
-        <Element index="484" value="131.26250127000003"/>
+        <Element index="484" value="131.23330126000002"/>
         <Element index="485" value="0.56026"/>
         <Element index="486" value="0.99873"/>
         <Element index="487" value="0.28623"/>
-        <Element index="488" value="131.32709111000003"/>
+        <Element index="488" value="131.29769118000002"/>
         <Element index="489" value="0.57357"/>
         <Element index="490" value="0.99817"/>
         <Element index="491" value="0.27712"/>
-        <Element index="492" value="131.39168095000002"/>
+        <Element index="492" value="131.3620811"/>
         <Element index="493" value="0.58646"/>
         <Element index="494" value="0.99739"/>
         <Element index="495" value="0.26849"/>
-        <Element index="496" value="131.45627079000002"/>
+        <Element index="496" value="131.42647102000004"/>
         <Element index="497" value="0.59891"/>
         <Element index="498" value="0.99638"/>
         <Element index="499" value="0.26038"/>
-        <Element index="500" value="131.52102540000004"/>
+        <Element index="500" value="131.49102520000002"/>
         <Element index="501" value="0.61088"/>
         <Element index="502" value="0.99514"/>
         <Element index="503" value="0.2528"/>
-        <Element index="504" value="131.58561524000004"/>
+        <Element index="504" value="131.55541512000002"/>
         <Element index="505" value="0.62233"/>
         <Element index="506" value="0.99366"/>
         <Element index="507" value="0.24579"/>
-        <Element index="508" value="131.65020508000003"/>
+        <Element index="508" value="131.61980504000002"/>
         <Element index="509" value="0.63323"/>
         <Element index="510" value="0.99195"/>
         <Element index="511" value="0.23937"/>
-        <Element index="512" value="131.71479492000003"/>
+        <Element index="512" value="131.68419496"/>
         <Element index="513" value="0.64362"/>
         <Element index="514" value="0.98999"/>
         <Element index="515" value="0.23356"/>
-        <Element index="516" value="131.77938476000003"/>
+        <Element index="516" value="131.74858488"/>
         <Element index="517" value="0.65394"/>
         <Element index="518" value="0.98775"/>
         <Element index="519" value="0.22835"/>
-        <Element index="520" value="131.84397460000002"/>
+        <Element index="520" value="131.8129748"/>
         <Element index="521" value="0.66428"/>
         <Element index="522" value="0.98524"/>
         <Element index="523" value="0.2237"/>
-        <Element index="524" value="131.90872921000005"/>
+        <Element index="524" value="131.87752898"/>
         <Element index="525" value="0.67462"/>
         <Element index="526" value="0.98246"/>
         <Element index="527" value="0.2196"/>
-        <Element index="528" value="131.97331905000004"/>
+        <Element index="528" value="131.94191890000002"/>
         <Element index="529" value="0.68494"/>
         <Element index="530" value="0.97941"/>
         <Element index="531" value="0.21602"/>
-        <Element index="532" value="132.03790889000004"/>
+        <Element index="532" value="132.00630882000002"/>
         <Element index="533" value="0.69525"/>
         <Element index="534" value="0.9761"/>
         <Element index="535" value="0.21294"/>
-        <Element index="536" value="132.10249873000004"/>
+        <Element index="536" value="132.07069874"/>
         <Element index="537" value="0.70553"/>
         <Element index="538" value="0.97255"/>
         <Element index="539" value="0.21032"/>
-        <Element index="540" value="132.16708857000003"/>
+        <Element index="540" value="132.13508866"/>
         <Element index="541" value="0.71577"/>
         <Element index="542" value="0.96875"/>
         <Element index="543" value="0.20815"/>
-        <Element index="544" value="132.23167841000006"/>
+        <Element index="544" value="132.19947858"/>
         <Element index="545" value="0.72596"/>
         <Element index="546" value="0.9647"/>
         <Element index="547" value="0.2064"/>
-        <Element index="548" value="132.29626825000005"/>
+        <Element index="548" value="132.2638685"/>
         <Element index="549" value="0.7361"/>
         <Element index="550" value="0.96043"/>
         <Element index="551" value="0.20504"/>
-        <Element index="552" value="132.36102286000002"/>
+        <Element index="552" value="132.32842268000002"/>
         <Element index="553" value="0.74617"/>
         <Element index="554" value="0.95593"/>
         <Element index="555" value="0.20406"/>
-        <Element index="556" value="132.42561270000004"/>
+        <Element index="556" value="132.3928126"/>
         <Element index="557" value="0.75617"/>
         <Element index="558" value="0.95121"/>
         <Element index="559" value="0.20343"/>
-        <Element index="560" value="132.49020254000004"/>
+        <Element index="560" value="132.45720252000004"/>
         <Element index="561" value="0.76608"/>
         <Element index="562" value="0.94627"/>
         <Element index="563" value="0.20311"/>
-        <Element index="564" value="132.55479238000004"/>
+        <Element index="564" value="132.52159244000003"/>
         <Element index="565" value="0.77591"/>
         <Element index="566" value="0.94113"/>
         <Element index="567" value="0.2031"/>
-        <Element index="568" value="132.61938222000003"/>
+        <Element index="568" value="132.58598236000003"/>
         <Element index="569" value="0.78563"/>
         <Element index="570" value="0.93579"/>
         <Element index="571" value="0.20336"/>
-        <Element index="572" value="132.68397206000003"/>
+        <Element index="572" value="132.65037228000003"/>
         <Element index="573" value="0.79524"/>
         <Element index="574" value="0.93025"/>
         <Element index="575" value="0.20386"/>
-        <Element index="576" value="132.74872667000002"/>
+        <Element index="576" value="132.71492646000002"/>
         <Element index="577" value="0.80473"/>
         <Element index="578" value="0.92452"/>
         <Element index="579" value="0.20459"/>
-        <Element index="580" value="132.81331651000002"/>
+        <Element index="580" value="132.77931638"/>
         <Element index="581" value="0.8141"/>
         <Element index="582" value="0.91861"/>
         <Element index="583" value="0.20552"/>
-        <Element index="584" value="132.87790635000002"/>
+        <Element index="584" value="132.8437063"/>
         <Element index="585" value="0.82333"/>
         <Element index="586" value="0.91253"/>
         <Element index="587" value="0.20663"/>
-        <Element index="588" value="132.94249619000004"/>
+        <Element index="588" value="132.90809622"/>
         <Element index="589" value="0.83241"/>
         <Element index="590" value="0.90627"/>
         <Element index="591" value="0.20788"/>
-        <Element index="592" value="133.00708603000004"/>
+        <Element index="592" value="132.97248614000003"/>
         <Element index="593" value="0.84133"/>
         <Element index="594" value="0.89986"/>
         <Element index="595" value="0.20926"/>
-        <Element index="596" value="133.07167587000004"/>
+        <Element index="596" value="133.03687606000003"/>
         <Element index="597" value="0.8501"/>
         <Element index="598" value="0.89328"/>
         <Element index="599" value="0.21074"/>
-        <Element index="600" value="133.13643048000006"/>
+        <Element index="600" value="133.10143024"/>
         <Element index="601" value="0.85868"/>
         <Element index="602" value="0.88655"/>
         <Element index="603" value="0.2123"/>
-        <Element index="604" value="133.20102032000005"/>
+        <Element index="604" value="133.16582016"/>
         <Element index="605" value="0.86709"/>
         <Element index="606" value="0.87968"/>
         <Element index="607" value="0.21391"/>
-        <Element index="608" value="133.26561016000002"/>
+        <Element index="608" value="133.23021008"/>
         <Element index="609" value="0.8753"/>
         <Element index="610" value="0.87267"/>
         <Element index="611" value="0.21555"/>
-        <Element index="612" value="133.33020000000002"/>
+        <Element index="612" value="133.2946"/>
         <Element index="613" value="0.88331"/>
         <Element index="614" value="0.86553"/>
         <Element index="615" value="0.21719"/>
-        <Element index="616" value="133.39478984000002"/>
+        <Element index="616" value="133.35898992"/>
         <Element index="617" value="0.89112"/>
         <Element index="618" value="0.85826"/>
         <Element index="619" value="0.2188"/>
-        <Element index="620" value="133.45937968000004"/>
+        <Element index="620" value="133.42337984"/>
         <Element index="621" value="0.8987"/>
         <Element index="622" value="0.85087"/>
         <Element index="623" value="0.22038"/>
-        <Element index="624" value="133.52396952000004"/>
+        <Element index="624" value="133.48776976000002"/>
         <Element index="625" value="0.90605"/>
         <Element index="626" value="0.84337"/>
         <Element index="627" value="0.22188"/>
-        <Element index="628" value="133.58872413000003"/>
+        <Element index="628" value="133.55232394"/>
         <Element index="629" value="0.91317"/>
         <Element index="630" value="0.83576"/>
         <Element index="631" value="0.22328"/>
-        <Element index="632" value="133.65331397000006"/>
+        <Element index="632" value="133.61671386"/>
         <Element index="633" value="0.92004"/>
         <Element index="634" value="0.82806"/>
         <Element index="635" value="0.22456"/>
-        <Element index="636" value="133.71790381000005"/>
+        <Element index="636" value="133.68110378000003"/>
         <Element index="637" value="0.92666"/>
         <Element index="638" value="0.82025"/>
         <Element index="639" value="0.2257"/>
-        <Element index="640" value="133.78249365000005"/>
+        <Element index="640" value="133.7454937"/>
         <Element index="641" value="0.93301"/>
         <Element index="642" value="0.81236"/>
         <Element index="643" value="0.22667"/>
-        <Element index="644" value="133.84708349000005"/>
+        <Element index="644" value="133.80988362000002"/>
         <Element index="645" value="0.93909"/>
         <Element index="646" value="0.80439"/>
         <Element index="647" value="0.22744"/>
-        <Element index="648" value="133.91167333"/>
+        <Element index="648" value="133.87427354000002"/>
         <Element index="649" value="0.94489"/>
         <Element index="650" value="0.79634"/>
         <Element index="651" value="0.228"/>
-        <Element index="652" value="133.97642794000004"/>
+        <Element index="652" value="133.93882772"/>
         <Element index="653" value="0.95039"/>
         <Element index="654" value="0.78823"/>
         <Element index="655" value="0.22831"/>
-        <Element index="656" value="134.04101778000003"/>
+        <Element index="656" value="134.00321764000003"/>
         <Element index="657" value="0.9556"/>
         <Element index="658" value="0.78005"/>
         <Element index="659" value="0.22836"/>
-        <Element index="660" value="134.10560762000003"/>
+        <Element index="660" value="134.06760756000003"/>
         <Element index="661" value="0.96049"/>
         <Element index="662" value="0.77181"/>
         <Element index="663" value="0.22811"/>
-        <Element index="664" value="134.17019746000005"/>
+        <Element index="664" value="134.13199748000002"/>
         <Element index="665" value="0.96507"/>
         <Element index="666" value="0.76352"/>
         <Element index="667" value="0.22754"/>
-        <Element index="668" value="134.23478730000005"/>
+        <Element index="668" value="134.19638740000002"/>
         <Element index="669" value="0.96931"/>
         <Element index="670" value="0.75519"/>
         <Element index="671" value="0.22663"/>
-        <Element index="672" value="134.29937714000005"/>
+        <Element index="672" value="134.26077732000002"/>
         <Element index="673" value="0.97323"/>
         <Element index="674" value="0.74682"/>
         <Element index="675" value="0.22536"/>
-        <Element index="676" value="134.36413175000004"/>
+        <Element index="676" value="134.3253315"/>
         <Element index="677" value="0.97679"/>
         <Element index="678" value="0.73842"/>
         <Element index="679" value="0.22369"/>
-        <Element index="680" value="134.42872159000004"/>
+        <Element index="680" value="134.38972142"/>
         <Element index="681" value="0.98"/>
         <Element index="682" value="0.73"/>
         <Element index="683" value="0.22161"/>
-        <Element index="684" value="134.49331143000003"/>
+        <Element index="684" value="134.45411134"/>
         <Element index="685" value="0.98289"/>
         <Element index="686" value="0.7214"/>
         <Element index="687" value="0.21918"/>
-        <Element index="688" value="134.55790127000003"/>
+        <Element index="688" value="134.51850126000002"/>
         <Element index="689" value="0.98549"/>
         <Element index="690" value="0.7125"/>
         <Element index="691" value="0.2165"/>
-        <Element index="692" value="134.62249111000003"/>
+        <Element index="692" value="134.58289118000002"/>
         <Element index="693" value="0.98781"/>
         <Element index="694" value="0.7033"/>
         <Element index="695" value="0.21358"/>
-        <Element index="696" value="134.68708095000005"/>
+        <Element index="696" value="134.64728110000001"/>
         <Element index="697" value="0.98986"/>
         <Element index="698" value="0.69382"/>
         <Element index="699" value="0.21043"/>
-        <Element index="700" value="134.75167079000005"/>
+        <Element index="700" value="134.71167102"/>
         <Element index="701" value="0.99163"/>
         <Element index="702" value="0.68408"/>
         <Element index="703" value="0.20706"/>
-        <Element index="704" value="134.8164254"/>
+        <Element index="704" value="134.7762252"/>
         <Element index="705" value="0.99314"/>
         <Element index="706" value="0.67408"/>
         <Element index="707" value="0.20348"/>
-        <Element index="708" value="134.88101524000004"/>
+        <Element index="708" value="134.84061512"/>
         <Element index="709" value="0.99438"/>
         <Element index="710" value="0.66386"/>
         <Element index="711" value="0.19971"/>
-        <Element index="712" value="134.94560508000004"/>
+        <Element index="712" value="134.90500504"/>
         <Element index="713" value="0.99535"/>
         <Element index="714" value="0.65341"/>
         <Element index="715" value="0.19577"/>
-        <Element index="716" value="135.01019492000003"/>
+        <Element index="716" value="134.96939496"/>
         <Element index="717" value="0.99607"/>
         <Element index="718" value="0.64277"/>
         <Element index="719" value="0.19165"/>
-        <Element index="720" value="135.07478476000003"/>
+        <Element index="720" value="135.03378488"/>
         <Element index="721" value="0.99654"/>
         <Element index="722" value="0.63193"/>
         <Element index="723" value="0.18738"/>
-        <Element index="724" value="135.13937460000002"/>
+        <Element index="724" value="135.0981748"/>
         <Element index="725" value="0.99675"/>
         <Element index="726" value="0.62093"/>
         <Element index="727" value="0.18297"/>
-        <Element index="728" value="135.20412921000005"/>
+        <Element index="728" value="135.16272898000003"/>
         <Element index="729" value="0.99672"/>
         <Element index="730" value="0.60977"/>
         <Element index="731" value="0.17842"/>
-        <Element index="732" value="135.26871905000004"/>
+        <Element index="732" value="135.22711890000002"/>
         <Element index="733" value="0.99644"/>
         <Element index="734" value="0.59846"/>
         <Element index="735" value="0.17376"/>
-        <Element index="736" value="135.33330889000004"/>
+        <Element index="736" value="135.29150882000002"/>
         <Element index="737" value="0.99593"/>
         <Element index="738" value="0.58703"/>
         <Element index="739" value="0.16899"/>
-        <Element index="740" value="135.39789873000007"/>
+        <Element index="740" value="135.35589874000001"/>
         <Element index="741" value="0.99517"/>
         <Element index="742" value="0.57549"/>
         <Element index="743" value="0.16412"/>
-        <Element index="744" value="135.46248857000003"/>
+        <Element index="744" value="135.42028866"/>
         <Element index="745" value="0.99419"/>
         <Element index="746" value="0.56386"/>
         <Element index="747" value="0.15918"/>
-        <Element index="748" value="135.52707841000003"/>
+        <Element index="748" value="135.48467858"/>
         <Element index="749" value="0.99297"/>
         <Element index="750" value="0.55214"/>
         <Element index="751" value="0.15417"/>
-        <Element index="752" value="135.59166825000003"/>
+        <Element index="752" value="135.54906850000003"/>
         <Element index="753" value="0.99153"/>
         <Element index="754" value="0.54036"/>
         <Element index="755" value="0.1491"/>
-        <Element index="756" value="135.65642286000005"/>
+        <Element index="756" value="135.61362268000002"/>
         <Element index="757" value="0.98987"/>
         <Element index="758" value="0.52854"/>
         <Element index="759" value="0.14398"/>
-        <Element index="760" value="135.72101270000005"/>
+        <Element index="760" value="135.67801260000002"/>
         <Element index="761" value="0.98799"/>
         <Element index="762" value="0.51667"/>
         <Element index="763" value="0.13883"/>
-        <Element index="764" value="135.78560254000004"/>
+        <Element index="764" value="135.74240252"/>
         <Element index="765" value="0.9859"/>
         <Element index="766" value="0.50479"/>
         <Element index="767" value="0.13367"/>
-        <Element index="768" value="135.85019238000004"/>
+        <Element index="768" value="135.80679244"/>
         <Element index="769" value="0.9836"/>
         <Element index="770" value="0.49291"/>
         <Element index="771" value="0.12849"/>
-        <Element index="772" value="135.91478222000006"/>
+        <Element index="772" value="135.87118236"/>
         <Element index="773" value="0.98108"/>
         <Element index="774" value="0.48104"/>
         <Element index="775" value="0.12332"/>
-        <Element index="776" value="135.97937206000006"/>
+        <Element index="776" value="135.93557228"/>
         <Element index="777" value="0.97837"/>
         <Element index="778" value="0.4692"/>
         <Element index="779" value="0.11817"/>
-        <Element index="780" value="136.04412667000003"/>
+        <Element index="780" value="136.00012646000002"/>
         <Element index="781" value="0.97545"/>
         <Element index="782" value="0.4574"/>
         <Element index="783" value="0.11305"/>
-        <Element index="784" value="136.10871651000005"/>
+        <Element index="784" value="136.06451638000001"/>
         <Element index="785" value="0.97234"/>
         <Element index="786" value="0.44565"/>
         <Element index="787" value="0.10797"/>
-        <Element index="788" value="136.17330635000005"/>
+        <Element index="788" value="136.1289063"/>
         <Element index="789" value="0.96904"/>
         <Element index="790" value="0.43399"/>
         <Element index="791" value="0.10294"/>
-        <Element index="792" value="136.23789619000004"/>
+        <Element index="792" value="136.19329622"/>
         <Element index="793" value="0.96555"/>
         <Element index="794" value="0.42241"/>
         <Element index="795" value="0.09798"/>
-        <Element index="796" value="136.30248603000004"/>
+        <Element index="796" value="136.25768614"/>
         <Element index="797" value="0.96187"/>
         <Element index="798" value="0.41093"/>
         <Element index="799" value="0.0931"/>
-        <Element index="800" value="136.36707587000004"/>
+        <Element index="800" value="136.32207606"/>
         <Element index="801" value="0.95801"/>
         <Element index="802" value="0.39958"/>
         <Element index="803" value="0.08831"/>
-        <Element index="804" value="136.43183048000003"/>
+        <Element index="804" value="136.38663024000002"/>
         <Element index="805" value="0.95398"/>
         <Element index="806" value="0.38836"/>
         <Element index="807" value="0.08362"/>
-        <Element index="808" value="136.49642032000003"/>
+        <Element index="808" value="136.45102016"/>
         <Element index="809" value="0.94977"/>
         <Element index="810" value="0.37729"/>
         <Element index="811" value="0.07905"/>
-        <Element index="812" value="136.56101016000002"/>
+        <Element index="812" value="136.51541008"/>
         <Element index="813" value="0.94538"/>
         <Element index="814" value="0.36638"/>
         <Element index="815" value="0.07461"/>
-        <Element index="816" value="136.62560000000005"/>
+        <Element index="816" value="136.57980000000003"/>
         <Element index="817" value="0.94084"/>
         <Element index="818" value="0.35566"/>
         <Element index="819" value="0.07031"/>
-        <Element index="820" value="136.69018984000004"/>
+        <Element index="820" value="136.64418992000003"/>
         <Element index="821" value="0.93612"/>
         <Element index="822" value="0.34513"/>
         <Element index="823" value="0.06616"/>
-        <Element index="824" value="136.75477968000004"/>
+        <Element index="824" value="136.70857984000003"/>
         <Element index="825" value="0.93125"/>
         <Element index="826" value="0.33482"/>
         <Element index="827" value="0.06218"/>
-        <Element index="828" value="136.81936952000004"/>
+        <Element index="828" value="136.77296976000002"/>
         <Element index="829" value="0.92623"/>
         <Element index="830" value="0.32473"/>
         <Element index="831" value="0.05837"/>
-        <Element index="832" value="136.88412413000006"/>
+        <Element index="832" value="136.83752394"/>
         <Element index="833" value="0.92105"/>
         <Element index="834" value="0.31489"/>
         <Element index="835" value="0.05475"/>
-        <Element index="836" value="136.94871397000003"/>
+        <Element index="836" value="136.90191386"/>
         <Element index="837" value="0.91572"/>
         <Element index="838" value="0.3053"/>
         <Element index="839" value="0.05134"/>
-        <Element index="840" value="137.01330381000002"/>
+        <Element index="840" value="136.96630378"/>
         <Element index="841" value="0.91024"/>
         <Element index="842" value="0.29599"/>
         <Element index="843" value="0.04814"/>
-        <Element index="844" value="137.07789365000002"/>
+        <Element index="844" value="137.0306937"/>
         <Element index="845" value="0.90463"/>
         <Element index="846" value="0.28696"/>
         <Element index="847" value="0.04516"/>
-        <Element index="848" value="137.14248349000005"/>
+        <Element index="848" value="137.09508362000003"/>
         <Element index="849" value="0.89888"/>
         <Element index="850" value="0.27824"/>
         <Element index="851" value="0.04243"/>
-        <Element index="852" value="137.20707333000004"/>
+        <Element index="852" value="137.15947354000002"/>
         <Element index="853" value="0.89298"/>
         <Element index="854" value="0.26981"/>
         <Element index="855" value="0.03993"/>
-        <Element index="856" value="137.27182794000004"/>
+        <Element index="856" value="137.22402772"/>
         <Element index="857" value="0.88691"/>
         <Element index="858" value="0.26152"/>
         <Element index="859" value="0.03753"/>
-        <Element index="860" value="137.33641778000006"/>
+        <Element index="860" value="137.28841764"/>
         <Element index="861" value="0.88066"/>
         <Element index="862" value="0.25334"/>
         <Element index="863" value="0.03521"/>
-        <Element index="864" value="137.40100762000006"/>
+        <Element index="864" value="137.35280756"/>
         <Element index="865" value="0.87422"/>
         <Element index="866" value="0.24526"/>
         <Element index="867" value="0.03297"/>
-        <Element index="868" value="137.46559746000005"/>
+        <Element index="868" value="137.41719748"/>
         <Element index="869" value="0.8676"/>
         <Element index="870" value="0.2373"/>
         <Element index="871" value="0.03082"/>
-        <Element index="872" value="137.53018730000005"/>
+        <Element index="872" value="137.4815874"/>
         <Element index="873" value="0.86079"/>
         <Element index="874" value="0.22945"/>
         <Element index="875" value="0.02875"/>
-        <Element index="876" value="137.59477714000005"/>
+        <Element index="876" value="137.54597732"/>
         <Element index="877" value="0.8538"/>
         <Element index="878" value="0.2217"/>
         <Element index="879" value="0.02677"/>
-        <Element index="880" value="137.65953175000004"/>
+        <Element index="880" value="137.6105315"/>
         <Element index="881" value="0.84662"/>
         <Element index="882" value="0.21407"/>
         <Element index="883" value="0.02487"/>
-        <Element index="884" value="137.72412159000004"/>
+        <Element index="884" value="137.67492142000003"/>
         <Element index="885" value="0.83926"/>
         <Element index="886" value="0.20654"/>
         <Element index="887" value="0.02305"/>
-        <Element index="888" value="137.78871143000003"/>
+        <Element index="888" value="137.73931134"/>
         <Element index="889" value="0.83172"/>
         <Element index="890" value="0.19912"/>
         <Element index="891" value="0.02131"/>
-        <Element index="892" value="137.85330127000006"/>
+        <Element index="892" value="137.80370126000003"/>
         <Element index="893" value="0.82399"/>
         <Element index="894" value="0.19182"/>
         <Element index="895" value="0.01966"/>
-        <Element index="896" value="137.91789111000006"/>
+        <Element index="896" value="137.86809118000002"/>
         <Element index="897" value="0.81608"/>
         <Element index="898" value="0.18462"/>
         <Element index="899" value="0.01809"/>
-        <Element index="900" value="137.98248095000005"/>
+        <Element index="900" value="137.9324811"/>
         <Element index="901" value="0.80799"/>
         <Element index="902" value="0.17753"/>
         <Element index="903" value="0.0166"/>
-        <Element index="904" value="138.04707079000005"/>
+        <Element index="904" value="137.99687102000001"/>
         <Element index="905" value="0.79971"/>
         <Element index="906" value="0.17055"/>
         <Element index="907" value="0.0152"/>
-        <Element index="908" value="138.11182540000004"/>
+        <Element index="908" value="138.0614252"/>
         <Element index="909" value="0.79125"/>
         <Element index="910" value="0.16368"/>
         <Element index="911" value="0.01387"/>
-        <Element index="912" value="138.17641524000004"/>
+        <Element index="912" value="138.12581512000003"/>
         <Element index="913" value="0.7826"/>
         <Element index="914" value="0.15693"/>
         <Element index="915" value="0.01264"/>
-        <Element index="916" value="138.24100508000004"/>
+        <Element index="916" value="138.19020504000002"/>
         <Element index="917" value="0.77377"/>
         <Element index="918" value="0.15028"/>
         <Element index="919" value="0.01148"/>
-        <Element index="920" value="138.30559492000003"/>
+        <Element index="920" value="138.25459496000002"/>
         <Element index="921" value="0.76476"/>
         <Element index="922" value="0.14374"/>
         <Element index="923" value="0.01041"/>
-        <Element index="924" value="138.37018476000006"/>
+        <Element index="924" value="138.31898488000002"/>
         <Element index="925" value="0.75556"/>
         <Element index="926" value="0.13731"/>
         <Element index="927" value="0.00942"/>
-        <Element index="928" value="138.43477460000005"/>
+        <Element index="928" value="138.3833748"/>
         <Element index="929" value="0.74617"/>
         <Element index="930" value="0.13098"/>
         <Element index="931" value="0.00851"/>
-        <Element index="932" value="138.49952921000005"/>
+        <Element index="932" value="138.44792898"/>
         <Element index="933" value="0.73661"/>
         <Element index="934" value="0.12477"/>
         <Element index="935" value="0.00769"/>
-        <Element index="936" value="138.56411905000004"/>
+        <Element index="936" value="138.5123189"/>
         <Element index="937" value="0.72686"/>
         <Element index="938" value="0.11867"/>
         <Element index="939" value="0.00695"/>
-        <Element index="940" value="138.62870889000004"/>
+        <Element index="940" value="138.57670882000002"/>
         <Element index="941" value="0.71692"/>
         <Element index="942" value="0.11268"/>
         <Element index="943" value="0.00629"/>
-        <Element index="944" value="138.69329873000004"/>
+        <Element index="944" value="138.64109874000002"/>
         <Element index="945" value="0.7068"/>
         <Element index="946" value="0.1068"/>
         <Element index="947" value="0.00571"/>
-        <Element index="948" value="138.75788857000003"/>
+        <Element index="948" value="138.70548866000001"/>
         <Element index="949" value="0.6965"/>
         <Element index="950" value="0.10102"/>
         <Element index="951" value="0.00522"/>
-        <Element index="952" value="138.82247841000003"/>
+        <Element index="952" value="138.76987858"/>
         <Element index="953" value="0.68602"/>
         <Element index="954" value="0.09536"/>
         <Element index="955" value="0.00481"/>
-        <Element index="956" value="138.88706825000006"/>
+        <Element index="956" value="138.8342685"/>
         <Element index="957" value="0.67535"/>
         <Element index="958" value="0.0898"/>
         <Element index="959" value="0.00449"/>
-        <Element index="960" value="138.95182286000005"/>
+        <Element index="960" value="138.89882268"/>
         <Element index="961" value="0.66449"/>
         <Element index="962" value="0.08436"/>
         <Element index="963" value="0.00424"/>
-        <Element index="964" value="139.01641270000005"/>
+        <Element index="964" value="138.9632126"/>
         <Element index="965" value="0.65345"/>
         <Element index="966" value="0.07902"/>
         <Element index="967" value="0.00408"/>
-        <Element index="968" value="139.08100254000007"/>
+        <Element index="968" value="139.02760252"/>
         <Element index="969" value="0.64223"/>
         <Element index="970" value="0.0738"/>
         <Element index="971" value="0.00401"/>
-        <Element index="972" value="139.14559238000004"/>
+        <Element index="972" value="139.09199244"/>
         <Element index="973" value="0.63082"/>
         <Element index="974" value="0.06868"/>
         <Element index="975" value="0.00401"/>
-        <Element index="976" value="139.21018222000004"/>
+        <Element index="976" value="139.15638236"/>
         <Element index="977" value="0.61923"/>
         <Element index="978" value="0.06367"/>
         <Element index="979" value="0.0041"/>
-        <Element index="980" value="139.27477206000003"/>
+        <Element index="980" value="139.22077228"/>
         <Element index="981" value="0.60746"/>
         <Element index="982" value="0.05878"/>
         <Element index="983" value="0.00427"/>
-        <Element index="984" value="139.33952667000005"/>
+        <Element index="984" value="139.28532646000002"/>
         <Element index="985" value="0.5955"/>
         <Element index="986" value="0.05399"/>
         <Element index="987" value="0.00453"/>
-        <Element index="988" value="139.40411651000005"/>
+        <Element index="988" value="139.34971638000002"/>
         <Element index="989" value="0.58336"/>
         <Element index="990" value="0.04931"/>
         <Element index="991" value="0.00486"/>
-        <Element index="992" value="139.46870635000005"/>
+        <Element index="992" value="139.41410630000001"/>
         <Element index="993" value="0.57103"/>
         <Element index="994" value="0.04474"/>
         <Element index="995" value="0.00529"/>
-        <Element index="996" value="139.53329619000004"/>
+        <Element index="996" value="139.47849622"/>
         <Element index="997" value="0.55852"/>
         <Element index="998" value="0.04028"/>
         <Element index="999" value="0.00579"/>
-        <Element index="1000" value="139.59788603000007"/>
+        <Element index="1000" value="139.54288614"/>
         <Element index="1001" value="0.54583"/>
         <Element index="1002" value="0.03593"/>
         <Element index="1003" value="0.00638"/>
-        <Element index="1004" value="139.66247587000007"/>
+        <Element index="1004" value="139.60727606"/>
         <Element index="1005" value="0.53295"/>
         <Element index="1006" value="0.03169"/>
         <Element index="1007" value="0.00705"/>
-        <Element index="1008" value="139.72723048000003"/>
+        <Element index="1008" value="139.67183024000002"/>
         <Element index="1009" value="0.51989"/>
         <Element index="1010" value="0.02756"/>
         <Element index="1011" value="0.0078"/>
-        <Element index="1012" value="139.79182032000006"/>
+        <Element index="1012" value="139.73622016000002"/>
         <Element index="1013" value="0.50664"/>
         <Element index="1014" value="0.02354"/>
         <Element index="1015" value="0.00863"/>
-        <Element index="1016" value="139.85641016000005"/>
+        <Element index="1016" value="139.80061008"/>
         <Element index="1017" value="0.49321"/>
         <Element index="1018" value="0.01963"/>
         <Element index="1019" value="0.00955"/>
-        <Element index="1020" value="139.92100000000005"/>
+        <Element index="1020" value="139.865"/>
         <Element index="1021" value="0.4796"/>
         <Element index="1022" value="0.01583"/>
         <Element index="1023" value="0.01055"/>
@@ -1300,11 +1300,11 @@
         <Domain name="bool" id="634.AllowDuplicateScalars.bool"/>
       </Property>
       <Property name="Points" id="634.Points" number_of_elements="8">
-        <Element index="0" value="123.44900000000001"/>
+        <Element index="0" value="123.44600000000003"/>
         <Element index="1" value="0"/>
         <Element index="2" value="0.5"/>
         <Element index="3" value="0"/>
-        <Element index="4" value="139.92100000000005"/>
+        <Element index="4" value="139.865"/>
         <Element index="5" value="1"/>
         <Element index="6" value="0.5"/>
         <Element index="7" value="0"/>
@@ -1932,11 +1932,11 @@
         <Domain name="bool" id="936.AllowDuplicateScalars.bool"/>
       </Property>
       <Property name="Points" id="936.Points" number_of_elements="8">
-        <Element index="0" value="123.44900000000001"/>
+        <Element index="0" value="123.44600000000003"/>
         <Element index="1" value="0"/>
         <Element index="2" value="0.5"/>
         <Element index="3" value="0"/>
-        <Element index="4" value="139.92100000000005"/>
+        <Element index="4" value="139.865"/>
         <Element index="5" value="1"/>
         <Element index="6" value="0.5"/>
         <Element index="7" value="0"/>
@@ -2496,11 +2496,11 @@
         <Domain name="bool" id="937.AllowDuplicateScalars.bool"/>
       </Property>
       <Property name="Points" id="937.Points" number_of_elements="8">
-        <Element index="0" value="123.44900000000001"/>
+        <Element index="0" value="123.44600000000003"/>
         <Element index="1" value="0"/>
         <Element index="2" value="0.5"/>
         <Element index="3" value="0"/>
-        <Element index="4" value="139.92100000000005"/>
+        <Element index="4" value="139.865"/>
         <Element index="5" value="1"/>
         <Element index="6" value="0.5"/>
         <Element index="7" value="0"/>
@@ -6501,7 +6501,7 @@
         <Domain name="groups" id="1011.ScalarOpacityFunction.groups"/>
       </Property>
       <Property name="ScalarOpacityUnitDistance" id="1011.ScalarOpacityUnitDistance" number_of_elements="1">
-        <Element index="0" value="12.273410649307596"/>
+        <Element index="0" value="12.220441146988904"/>
         <Domain name="bounds" id="1011.ScalarOpacityUnitDistance.bounds"/>
       </Property>
       <Property name="Scale" id="1011.Scale" number_of_elements="3">
@@ -6963,10 +6963,10 @@
         <Element index="0" value="{:&#x3c;#6.1e}"/>
       </Property>
       <Property name="DataRangeMax" id="642.DataRangeMax" number_of_elements="1">
-        <Element index="0" value="139.92100000000005"/>
+        <Element index="0" value="139.865"/>
       </Property>
       <Property name="DataRangeMin" id="642.DataRangeMin" number_of_elements="1">
-        <Element index="0" value="123.44900000000001"/>
+        <Element index="0" value="123.44600000000003"/>
       </Property>
       <Property name="DrawAnnotations" id="642.DrawAnnotations" number_of_elements="1">
         <Element index="0" value="1"/>
@@ -7379,7 +7379,7 @@
         <Domain name="bool" id="756.UseValueAsOffset.bool"/>
       </Property>
       <Property name="Value" id="756.Value" number_of_elements="1">
-        <Element index="0" value="131.68250000000003"/>
+        <Element index="0" value="131.65200000000002"/>
         <Domain name="range" id="756.Value.range"/>
       </Property>
     </Proxy>

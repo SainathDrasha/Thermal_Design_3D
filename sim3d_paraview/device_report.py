@@ -61,8 +61,7 @@ def _device_peak_c(pts, temp_c, dev):
 
 
 def main():
-    out_csv = os.path.join(RESULTS, "device_margins.csv")
-    rows = []
+    wrote = 0
     for case in CASES:
         vtu = os.path.join(RESULTS, case + ".vtu")
         if not os.path.exists(vtu):
@@ -73,6 +72,7 @@ def main():
         print("\n%s (ambient %.0f C):" % (case, t_amb))
         print("  %-18s %8s %8s %8s %8s  %s"
               % ("device", "P[W]", "Tj[C]", "dT[C]", "margin", "verdict"))
+        rows = []
         for dev in POWER_MAP_2SF:
             tj = _device_peak_c(pts, temp_c, dev)
             if tj is None:
@@ -81,22 +81,27 @@ def main():
             margin = limit - tj
             verdict = "PASS" if margin >= 0 else "FAIL"
             rows.append({
-                "case": case, "device": dev.name, "P_loss_W": round(dev.loss_w, 2),
+                "device": dev.name, "P_loss_W": round(dev.loss_w, 2),
                 "Tj_C": round(tj, 1), "ambient_C": t_amb,
                 "deltaT_C": round(tj - t_amb, 1), "limit_C": limit,
                 "margin_C": round(margin, 1), "verdict": verdict,
             })
             print("  %-18s %8.1f %8.1f %8.1f %8.1f  %s"
                   % (dev.name, dev.loss_w, tj, tj - t_amb, margin, verdict))
-
-    if not rows:
+        if not rows:
+            continue
+        # One CSV per case: results/<case>_margins.csv
+        out_csv = os.path.join(RESULTS, "%s_margins.csv" % case)
+        with open(out_csv, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+            w.writeheader()
+            w.writerows(rows)
+        n_fail = sum(1 for r in rows if r["verdict"] == "FAIL")
+        print("  -> wrote %s (%d devices, %d FAIL)"
+              % (os.path.basename(out_csv), len(rows), n_fail))
+        wrote += 1
+    if not wrote:
         sys.exit("No results to report.")
-    with open(out_csv, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
-        w.writeheader()
-        w.writerows(rows)
-    n_fail = sum(1 for r in rows if r["verdict"] == "FAIL")
-    print("\nWrote %s (%d rows, %d FAIL)" % (out_csv, len(rows), n_fail))
 
 
 main()

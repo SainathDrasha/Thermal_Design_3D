@@ -63,8 +63,9 @@ def main():
         _run("render", [pvpython, os.path.join(HERE, "render_paraview.py")])
 
     if start <= STAGES.index("report"):
-        # Device margin table reads the VTU with vtk in this same interpreter.
+        # Device margin table + labeled board map, both per case, in this Python.
         _run("report", [sys.executable, os.path.join(HERE, "device_report.py")])
+        _run("board map", [sys.executable, os.path.join(HERE, "board_map.py")])
 
     print("\nPipeline complete. Artifacts in %s" % RESULTS)
 

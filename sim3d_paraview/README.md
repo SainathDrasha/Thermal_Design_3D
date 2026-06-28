@@ -56,12 +56,14 @@ python device_report.py          # 4. margin table       -> results/device_margi
 |------|----------|
 | `<case>.frd` | raw CalculiX result (nodal temperature `NT`, heat flux `FLUX`) |
 | `<case>.vtu` | same field as VTU, openable directly in the ParaView GUI |
-| `<case>.png` | rendered temperature field (Celsius), cut-away + over-temp isosurface + scalar bar |
+| `<case>.png` | rendered temperature field (Celsius), cut-away + over-temp isosurface + housing cylinder + flux glyphs |
 | `<case>.pvsm` | **ParaView state** — open in the GUI for the ready-made scene to rotate / slice / probe / plot-over-line |
-| `device_margins.csv` | **per-device junction-temperature margin table** (both cases) |
+| `<case>_margins.csv` | **per-device junction-temperature margin table** (one CSV per case) |
+| `<case>_board_map.png` | **labeled board map** — every device tagged name / loss / peak temp, coloured by temperature |
 
 `<case>` is `subsea` and `surface`, the two operating environments in
-`../sim3d/config.py`.
+`../sim3d/config.py`. The report stage of `run_pipeline.py` regenerates the two
+margin CSVs and two board maps automatically for both cases.
 
 ### The engineering result: `device_margins.csv`
 
@@ -78,7 +80,7 @@ isolate the over-limit region.
 
 ## Notes on the render
 
-`render_paraview.py` has two settings at the top of the file:
+`render_paraview.py` has settings at the top of the file:
 
 - `USE_CLIP` (default `True`) — the device heat sources sit *inside* the stack,
   so the outer surface reads near-ambient and hides the gradient. The clip cuts
@@ -87,17 +89,45 @@ isolate the over-limit region.
 - `CLIP_NORMAL` — the cut-plane normal in mesh axes (`x` = board length,
   `y` = through-thickness, `z` = board width). The default `[0,0,1]` takes a
   lengthwise vertical section through the PCB heat-injection layer.
+- `SHOW_ISOSURFACE` — red surface at the 125 °C limit (the at-risk boundary).
+- `SHOW_HOUSING` — see-through Ø125 × 414 mm cylinder around the board as a
+  spatial reference. **It is NOT simulated** (carries no temperature); it just
+  shows where the real housing sits. See "The cylindrical housing" below.
+- `SHOW_FLUX_GLYPHS` — arrows of the CalculiX `FLUX` field; arrow length is
+  scaled to heat-flux magnitude (auto-fit per case), so you can see where and
+  how strongly heat flows. `GLYPH_STRIDE` controls arrow density.
 
 Temperatures are shifted Kelvin → Celsius for display only; the solver field is
 untouched. The temperature array is auto-detected (`NT`), so the render still
 works if a future CalculiX/ccx2paraview version renames it.
 
-## Swapping in a STEP file (parametric stack → real CAD)
+## The cylindrical housing (important)
+
+Right now the housing is **not real geometry in the simulation**. The FEM model
+is the flat PCB stack (PCB → Al → TIM → SS plate). The Ø125 × 414 mm cylindrical
+housing from the design doc is represented only as a **scaled convection
+coefficient** on the top face: `effective_h = h · A_housing / A_face`
+(`config.effective_h`). This reproduces the housing's *heat-rejection area*
+correctly for a first-order check, but there is no housing-shaped body, so it has
+no temperature field and no internal-to-housing gradient.
+
+The cylinder you see in the ParaView render (`SHOW_HOUSING`) is a **visual
+reference only** — it shows where the housing sits relative to the board; it is
+not meshed or solved.
+
+To make the housing **real, solved geometry** (with its own temperature field and
+a true conjugate path board → gas/rail → housing → fluid), use the STEP path
+below. Once a STEP enclosure is imported and meshed, drop the `effective_h`
+area-scaling (set `USE_HOUSING_AREA = False` in `config.py`) and apply the real
+convection coefficient `case.h` directly on the actual housing outer faces —
+the scaling trick is only a stand-in for the missing geometry.
+
+## Swapping in a STEP file (parametric stack → real CAD + real housing)
 
 The pipeline currently runs the **parametric layered stack** defined in
-`../sim3d/config.py`. To drive it from real CAD instead, change only the
-geometry source in `../sim3d/freecad_thermal.py`; the mesh, solve, and the whole
-`sim3d_paraview` tail stay the same.
+`../sim3d/config.py`. To drive it from real CAD (and get the real housing),
+change only the geometry source in `../sim3d/freecad_thermal.py`; the mesh,
+solve, and the whole `sim3d_paraview` tail stay the same.
 
 1. **Import the STEP in `build_geometry()`.** Replace the `Part::Box`
    construction with a STEP import, e.g.
@@ -133,19 +163,23 @@ geometry source in `../sim3d/freecad_thermal.py`; the mesh, solve, and the whole
 
 ## Caveat on the numbers (read before trusting the verdicts)
 
-The margins are correct **for the current model**, but the model under-represents
-the heat path, so treat the absolute temperatures as pessimistic, not as the
-real design verdict:
+The model now includes **thermal-via coupling** (`config.VIA_COUPLED = True`):
+each device's through-PCB column uses the via-array effective conductivity
+(`config.K_VIA` ≈ 96 W/m·K) instead of bare FR-4. This is the realistic
+bottom-cooled design, and it gives **subsea: all devices PASS (~30–34 °C)** and
+**surface (50 °C air): all FAIL by 7–15 °C at full power → derate to ~270 W**.
+Still keep in mind:
 
-- `freecad_thermal` injects each device's loss into the **FR-4 PCB layer with no
-  thermal-via coupling to the baseplate** (k_FR4 ≈ 0.3 W/m·K). The real 2SF
-  design bottom-cools the power devices through a via array / direct path. With
-  that resistance missing, ΔT is hugely inflated — which is why even the subsea
-  case shows MOSFETs at ~270 °C here, while the **via-coupled SfePy model in
-  `../sim3d` gives subsea T_case ≈ 43–76 °C (PASS)** for the same power.
+- Set `VIA_COUPLED = False` in `config.py` for the pessimistic
+  top-mount-through-FR-4 worst case (devices jump to hundreds of °C). The via
+  fill fraction (`VIA_FILL_FRACTION = 0.25`) is an `[ASSUMED]` value — adjust to
+  your real via array.
 - One junction limit (125 °C) is applied to every device. Real limits differ
   (SiC ~175 °C, magnetics/electrolytics often lower) — edit `LIMITS` in
   `device_report.py` for per-part ratings.
+- The housing is a boundary-condition approximation, not solved geometry — see
+  "The cylindrical housing" above. The absolute surface-case housing temperature
+  is only first-order until the STEP/conjugate model is built.
 
 So the *relative* ranking (which devices and which case are worst) is
 informative; the *absolute* pass/fail is not, until via-coupling is added to the

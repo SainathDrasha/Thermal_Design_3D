@@ -25,15 +25,29 @@ sys.path.insert(0, HERE)
 from paths import CASES, RESULTS
 
 sys.path.insert(0, os.path.join(HERE, "..", "sim3d"))  # config.py
-from config import T_J_MAX_C
+from config import T_J_MAX_C, GEOM, HOUSING_D, HOUSING_L
 
 from paraview.simple import (
-    Calculator, Clip, ColorBy, Contour, Delete, GetActiveCamera,
-    GetColorTransferFunction, GetScalarBar, GetActiveViewOrCreate, GetSources,
-    SaveScreenshot, SaveState, Show, Text, XMLUnstructuredGridReader,
+    Calculator, Clip, ColorBy, Contour, Cylinder, Delete, Glyph,
+    GetActiveCamera, GetColorTransferFunction, GetScalarBar,
+    GetActiveViewOrCreate, GetSources, SaveScreenshot, SaveState, Show, Text,
+    Transform, XMLUnstructuredGridReader,
 )
 
 IMAGE_SIZE = [1600, 1000]
+
+# Visual housing cylinder. The real Ø125 x 414 mm housing is NOT in the FEM
+# mesh -- it is represented only as a scaled convection coefficient on the top
+# face. This draws a see-through cylinder around the board as a spatial
+# reference ONLY (it carries no temperature). It becomes real, solved geometry
+# only via the STEP path (see README). Set False to hide.
+SHOW_HOUSING = True
+
+# Heat-flux glyphs: arrows of the CalculiX FLUX vector show where and how
+# strongly heat flows through the stack. Auto-scaled to the data each run.
+SHOW_FLUX_GLYPHS = True
+GLYPH_STRIDE = 40            # one arrow per N points (lower = denser)
+GLYPH_TARGET_MM = 14.0      # length of the largest arrow
 
 # Cut-away clip: the heat sources sit *inside* the stack, so the outer surface
 # reads near-ambient and hides the gradient. A clip plane through the model
@@ -128,6 +142,44 @@ def render_case(case, view):
         iso_disp.AmbientColor = [1.0, 0.0, 0.0]
         iso_disp.DiffuseColor = [1.0, 0.0, 0.0]
         disp.Opacity = 0.45
+
+    # Visual housing cylinder -- spatial reference only, NOT simulated geometry.
+    if SHOW_HOUSING:
+        try:
+            cyl = Cylinder()
+            cyl.Radius = HOUSING_D / 2.0 * 1000.0     # mm
+            cyl.Height = HOUSING_L * 1000.0           # mm
+            cyl.Resolution = 60
+            housing = Transform(Input=cyl)
+            housing.Transform = "Transform"
+            housing.Transform.Rotate = [0.0, 0.0, 90.0]   # axis Y -> X (board length)
+            housing.Transform.Translate = [GEOM.board_len * 1000.0 / 2.0,
+                                           GEOM.y_wall_top * 1000.0 / 2.0,
+                                           GEOM.board_wid * 1000.0 / 2.0]
+            housing.UpdatePipeline()
+            h_disp = Show(housing, view)
+            h_disp.Opacity = 0.12
+            h_disp.DiffuseColor = [0.6, 0.6, 0.65]
+        except Exception as e:                            # noqa: BLE001
+            print("[render] housing cylinder skipped: %s" % e)
+
+    # Heat-flux glyphs: arrow length scaled to |FLUX| (auto-fit per case) so you
+    # see where and how strongly heat flows. Arrows are solid; size = magnitude.
+    if SHOW_FLUX_GLYPHS:
+        try:
+            fmax = reader.PointData["FLUX"].GetRange(-1)[1]   # max |FLUX|
+            glyph = Glyph(Input=reader, GlyphType="Arrow")
+            glyph.OrientationArray = ["POINTS", "FLUX"]
+            glyph.ScaleArray = ["POINTS", "FLUX"]
+            glyph.ScaleFactor = (GLYPH_TARGET_MM / fmax) if fmax > 0 else 1.0
+            glyph.GlyphMode = "Every Nth Point"
+            glyph.Stride = GLYPH_STRIDE
+            glyph.UpdatePipeline()
+            g_disp = Show(glyph, view)
+            ColorBy(g_disp, None)
+            g_disp.DiffuseColor = [0.1, 0.1, 0.1]
+        except Exception as e:                            # noqa: BLE001
+            print("[render] flux glyphs skipped: %s" % e)
 
     # Peak-temperature label.
     label = Text()

@@ -1,0 +1,12 @@
+device,P_loss_W,Tj_C,ambient_C,deltaT_C,limit_C,margin_C,verdict
+buck_sic_mosfet,18.37,132.4,50.0,82.4,125.0,-7.4,FAIL
+buck_diode,8.35,132.1,50.0,82.1,125.0,-7.1,FAIL
+buck_inductor,6.68,132.4,50.0,82.4,125.0,-7.4,FAIL
+pfc_mosfet,13.81,136.0,50.0,86.0,125.0,-11.0,FAIL
+pfc_diode,9.21,136.8,50.0,86.8,125.0,-11.8,FAIL
+pfc_inductor,7.67,137.2,50.0,87.2,125.0,-12.2,FAIL
+flyback_aux,2.6,134.7,50.0,84.7,125.0,-9.7,FAIL
+dcdc_primary,18.51,139.8,50.0,89.8,125.0,-14.8,FAIL
+dcdc_sr,15.87,139.9,50.0,89.9,125.0,-14.9,FAIL
+dcdc_transformer,10.58,138.6,50.0,88.6,125.0,-13.6,FAIL
+dcdc_output,7.93,138.9,50.0,88.9,125.0,-13.9,FAIL
