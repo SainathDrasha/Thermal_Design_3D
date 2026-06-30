@@ -51,7 +51,7 @@ from femtools import ccxtools
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import (
     MATERIALS, POWER_MAP_2SF, GEOM, CASES, VIA_COUPLED,
-    power_total, effective_h, effective_h_internal, c_to_k,
+    power_total, effective_h, c_to_k,
 )
 
 MM = 1000.0  # config is SI (metres); FreeCAD geometry is in millimetres.
@@ -156,9 +156,12 @@ def build_geometry(doc):
                 for s in POWER_MAP_2SF:
                     if (abs(c.x - s.x_center * MM) <= s.x_len / 2 * MM + _TOL and
                             abs(c.z - s.z_center * MM) <= s.z_len / 2 * MM + _TOL):
-                        # Only conduction-cooled parts get the via column; a
-                        # gas-coupled magnetic stays bare FR-4 (it rejects to the
-                        # internal medium via a convection BC, added separately).
+                        # Column material by cooling path (both conduct to the
+                        # baseplate; dry N2 is not a heat path):
+                        #   "pad"        -> thermal gap-pad column (magnetics)
+                        #   "conduction" -> via column (power semis), if VIA_COUPLED
+                        if s.cooling == "pad":
+                            return "pad", s
                         via = VIA_COUPLED and s.cooling == "conduction"
                         return ("via" if via else "fr4"), s
                 return key, None
@@ -175,24 +178,6 @@ def _outer_face_names(shape):
         if abs(bb.YMax - _OUTER_FACE_Y * MM) < _TOL and bb.YLength < _TOL:
             names.append(f"Face{i}")
     return names
-
-
-def _gas_device_faces(shape):
-    """{device_name: [FaceN, ...]} for gas-coupled devices, on the PCB-bottom
-    (y = 0) plane within each device footprint -- the face that rejects to the
-    internal sealed medium."""
-    gas = {s.name: s for s in POWER_MAP_2SF if s.cooling == "gas"}
-    out = {}
-    for i, f in enumerate(shape.Faces, start=1):
-        bb = f.BoundBox
-        if abs(bb.YMax) < _TOL and bb.YLength < _TOL:        # planar face at y = 0
-            cx, cz = (bb.XMin + bb.XMax) / 2.0, (bb.ZMin + bb.ZMax) / 2.0
-            for name, s in gas.items():
-                if (abs(cx - s.x_center * MM) <= s.x_len / 2 * MM + _TOL and
-                        abs(cz - s.z_center * MM) <= s.z_len / 2 * MM + _TOL):
-                    out.setdefault(name, []).append(f"Face{i}")
-                    break
-    return out
 
 
 def setup_analysis(doc, geo, classify, case, mesh_mm=6.0, second_order=False):
@@ -297,26 +282,6 @@ def setup_analysis(doc, geo, classify, case, mesh_mm=6.0, second_order=False):
     hf.AmbientTemp = f"{c_to_k(case.t_inf_c)} K"
     hf.References = [(geo, list(faces))]
     analysis.addObject(hf)
-
-    # Internal-medium convection for gas-coupled parts (doc "Path 2"): each
-    # magnetic rejects to the internal sealed medium at case.t_internal_c, with
-    # the area-scaled internal coefficient, on its PCB-bottom (gas-side) face.
-    gas_faces = _gas_device_faces(shape)
-    h_int = effective_h_internal()
-    for name, gfaces in gas_faces.items():
-        gc = ObjectsFem.makeConstraintHeatflux(doc, f"gas_{name}")
-        gc.ConstraintType = "Convection"
-        gc.FilmCoef = f"{h_int:.6f} W/m^2/K"
-        gc.AmbientTemp = f"{c_to_k(case.t_internal_c)} K"
-        gc.References = [(geo, list(gfaces))]
-        analysis.addObject(gc)
-    # Warn if a gas-coupled device got no internal-convection face: it would then
-    # be bare FR-4 with nowhere to reject heat and read unrealistically hot.
-    gas_expected = {s.name for s in POWER_MAP_2SF if s.cooling == "gas"}
-    no_face = gas_expected - set(gas_faces)
-    if no_face:
-        App.Console.PrintWarning(
-            "Gas-coupled device(s) with no internal-medium face: %s\n" % no_face)
 
     # Mesh (Gmsh) on the SAME consolidated geometry object the materials and
     # loads reference -> node-matched across materials, every element tagged.

@@ -161,38 +161,41 @@ solve, and the whole `sim3d_paraview` tail stay the same.
 
 > The STEP file never leaves your machine — the entire toolchain runs locally.
 
-## Two cooling paths (conduction vs gas) — two different ambients
+## Two conduction paths (via vs thermal pad)
 
-A sealed module has **two ambients**: the **external coolant** (sea 20 °C / surface
-air 50 °C) that cools the housing outside, and the **internal sealed medium** that
-the components actually sit in (the ~85 °C-spec gas/oil; subsea it tracks the cool
-housing, ~25 °C). Each device is tagged in `config.py` by how it sheds heat
-(`config.GAS_COUPLED`):
+The interior is **dry N₂** — a poor heat path (conduction-dominated, per
+`rayleigh.py`), so **nothing is gas-cooled**: dry N₂ cannot carry the magnetics'
+loss (they would hit 300–500 °C). Everything conducts to the baseplate → external
+coolant, but through **two different interfaces**, tagged per device in
+`config.py`:
 
-- **`cooling = "conduction"`** (power semiconductors): via column → baseplate →
-  external coolant. Referenced to `case.t_inf_c`.
-- **`cooling = "gas"`** (magnetics: inductors, transformer, flyback): **no via**;
-  they reject to the internal medium at `case.t_internal_c` via an internal
-  convection BC (`config.effective_h_internal()`). This is the doc's "Path 2".
+- **`cooling = "conduction"`** (power semiconductors): a **thermal-via column**
+  through the PCB, `config.K_VIA` ≈ 96 W/m·K.
+- **`cooling = "pad"`** (magnetics: inductors, transformer, flyback —
+  `config.PAD_COUPLED`): a **thermal gap-pad** to the baseplate,
+  `MATERIALS["pad"]` ≈ 5 W/m·K (softer interface than vias).
 
-This matters because via-coupling *every* device made the magnetics read an
-unrealistic ~30 °C. With the split they sit warmer (~45–55 °C subsea, ~105–115 °C
-surface) — referenced to the warm internal medium, as a real wound part would.
+Both reject to the **external coolant** (`case.t_inf_c`), because both have a
+solid path to the cool baseplate. The 85 °C internal N₂ (`case.t_internal_c`) is
+**not a heat sink** — it's kept only as the radiation environment / ambient for
+tiny un-sunk parts (control ICs). With the pad path, magnetics run ~33–40 °C
+subsea (slightly warmer than the via-cooled semis, as a pad is softer than vias).
 
 ## Caveat on the numbers (read before trusting the verdicts)
 
-The model includes **thermal-via coupling** (`config.VIA_COUPLED`) for
-conduction-cooled parts and the **gas path** for magnetics. Result:
-**subsea — all PASS** (semis ~30 °C, magnetics ~45–55 °C); **surface (50 °C air)
-— FAIL at full power → derate to ~270 W**. Keep in mind:
+Power semis are **via-coupled** (`config.K_VIA`) and magnetics are **pad-coupled**
+to the baseplate (`MATERIALS["pad"]`); both reject to the external coolant.
+Result: **subsea — all PASS** (~30–34 °C, magnetics ~33–40 °C); **surface
+(50 °C air) — FAIL at full power → derate to ~270 W**. Keep in mind:
 
-- The biggest uncertainties are now the **internal medium and its coupling**:
-  `H_INTERNAL_MEDIUM` (oil ~100 vs N2 ~10 W/m²K), `INTERNAL_AREA_FACTOR`, and
-  `case.t_internal_c` — all `[ASSUMED]`. Gas-coupled junction temps are coarse
-  until these are pinned (ideally the internal medium is *solved*, via the STEP
-  conjugate model, not supplied).
+- The **thermal-pad conductivity** (`MATERIALS["pad"]["k"] ≈ 5`) is `[ASSUMED]`
+  — it sets the magnetic-to-baseplate resistance. Refine it with your real pad
+  spec (k, thickness, contact area); a worse pad raises the magnetics.
 - Via fill fraction (`VIA_FILL_FRACTION = 0.25`) is `[ASSUMED]`; set
   `VIA_COUPLED = False` for the pessimistic FR-4 worst case.
+- Magnetics MUST have this pad (or equivalent clamp): **dry N₂ alone cannot cool
+  them**. If a magnetic is *not* heat-sunk to the rail, it overheats — a design
+  gap to catch in layout.
 - One junction limit (125 °C) for all parts — real limits differ (SiC ~175 °C,
   magnetics/electrolytics lower); edit `LIMITS` in `device_report.py`.
 - The housing is a boundary-condition approximation, not solved geometry.

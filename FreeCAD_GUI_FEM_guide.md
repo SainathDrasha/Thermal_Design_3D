@@ -94,7 +94,8 @@ panel set **Thermal conductivity** and pick the solids under *References*:
 | Material | k (W/m·K) | Assign to |
 |----------|-----------|-----------|
 | FR-4 (PCB) | 0.30 | PCB remainder — **leave References EMPTY (catch-all)** |
-| **Via array** | **≈ 96.5** (`config.K_VIA`) | the **device through-PCB columns** (all device solids in one reference list) |
+| **Via array** | **≈ 96.5** (`config.K_VIA`) | the **power-semiconductor** columns (conduction-cooled parts) |
+| **Thermal gap-pad** | **≈ 5** (`MATERIALS["pad"]`) | the **magnetic** columns (inductors, transformer, flyback — pad-mounted to baseplate) |
 | Aluminium  | 160  | the baseplate layer |
 | TIM        | 3.0  | the TIM layer |
 | SS316L     | 16   | the housing-wall layer |
@@ -157,16 +158,15 @@ only leave through this face. This single-face area-scaling is a stand-in for th
 real cylindrical housing — see "Setting up with a STEP file" to replace it with
 true geometry.
 
-> 🔁 **Two cooling paths.** Power semiconductors are conduction-cooled (via
-> column → baseplate → external coolant, above). **Magnetics** (inductors,
-> transformer, flyback — `config.GAS_COUPLED`) instead reject to the **internal
-> sealed medium**: give them **no via** (bare FR-4 column) and a **second
-> Convection constraint on their PCB-bottom (gas-side) face**, with ambient =
-> the *internal* temperature (`case.t_internal_c`, ~25 °C subsea / 85 °C surface)
-> and the internal-medium coefficient (`config.effective_h_internal()`). The
-> headless script does this automatically; in the GUI add one extra Convection
-> constraint per magnetic. This keeps magnetics referenced to the warm internal
-> environment they live in, not the cold sea.
+> 🔁 **Two conduction paths (interior is dry N₂ — a poor heat path, so nothing
+> is gas-cooled).** Power semiconductors use a **via column** (`Via array`
+> material, step 4). **Magnetics** (inductors, transformer, flyback —
+> `config.PAD_COUPLED`) are mounted on a **thermal gap-pad to the baseplate**, so
+> give their columns the **`Thermal gap-pad` material** (`MATERIALS["pad"]` ≈
+> 5 W/m·K) instead of the via array. No extra convection constraint — they
+> conduct to the cool baseplate like the semis, just through a softer interface.
+> (Dry N₂ cannot cool a multi-watt magnetic; every magnetic needs this pad or an
+> equivalent clamp to the rail.)
 
 ---
 

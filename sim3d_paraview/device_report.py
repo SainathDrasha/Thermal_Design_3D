@@ -69,8 +69,7 @@ def main():
             continue
         pts, temp_c = _read_field(vtu)
         t_ext = CASE_BC[case].t_inf_c
-        t_int = CASE_BC[case].t_internal_c
-        print("\n%s (external %.0f C, internal %.0f C):" % (case, t_ext, t_int))
+        print("\n%s (external coolant %.0f C):" % (case, t_ext))
         print("  %-18s %-6s %7s %7s %7s %7s  %s"
               % ("device", "cool", "P[W]", "Tj[C]", "dT[C]", "margin", "verdict"))
         rows = []
@@ -78,8 +77,8 @@ def main():
             tj = _device_peak_c(pts, temp_c, dev)
             if tj is None:
                 continue
-            # Rise is referenced to the ambient that part actually rejects to.
-            amb = t_int if dev.cooling == "gas" else t_ext
+            # Both via and pad parts conduct to the baseplate -> external coolant.
+            amb = t_ext
             limit = LIMITS[dev.name]
             margin = limit - tj
             verdict = "PASS" if margin >= 0 else "FAIL"
