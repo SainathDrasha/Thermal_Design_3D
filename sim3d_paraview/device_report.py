@@ -68,26 +68,31 @@ def main():
             print("[report] %s.vtu missing -- run the solve/convert stages first" % case)
             continue
         pts, temp_c = _read_field(vtu)
-        t_amb = CASE_BC[case].t_inf_c
-        print("\n%s (ambient %.0f C):" % (case, t_amb))
-        print("  %-18s %8s %8s %8s %8s  %s"
-              % ("device", "P[W]", "Tj[C]", "dT[C]", "margin", "verdict"))
+        t_ext = CASE_BC[case].t_inf_c
+        t_int = CASE_BC[case].t_internal_c
+        print("\n%s (external %.0f C, internal %.0f C):" % (case, t_ext, t_int))
+        print("  %-18s %-6s %7s %7s %7s %7s  %s"
+              % ("device", "cool", "P[W]", "Tj[C]", "dT[C]", "margin", "verdict"))
         rows = []
         for dev in POWER_MAP_2SF:
             tj = _device_peak_c(pts, temp_c, dev)
             if tj is None:
                 continue
+            # Rise is referenced to the ambient that part actually rejects to.
+            amb = t_int if dev.cooling == "gas" else t_ext
             limit = LIMITS[dev.name]
             margin = limit - tj
             verdict = "PASS" if margin >= 0 else "FAIL"
             rows.append({
-                "device": dev.name, "P_loss_W": round(dev.loss_w, 2),
-                "Tj_C": round(tj, 1), "ambient_C": t_amb,
-                "deltaT_C": round(tj - t_amb, 1), "limit_C": limit,
-                "margin_C": round(margin, 1), "verdict": verdict,
+                "device": dev.name, "cooling": dev.cooling,
+                "P_loss_W": round(dev.loss_w, 2), "Tj_C": round(tj, 1),
+                "ambient_C": amb, "deltaT_C": round(tj - amb, 1),
+                "limit_C": limit, "margin_C": round(margin, 1),
+                "verdict": verdict,
             })
-            print("  %-18s %8.1f %8.1f %8.1f %8.1f  %s"
-                  % (dev.name, dev.loss_w, tj, tj - t_amb, margin, verdict))
+            print("  %-18s %-6s %7.1f %7.1f %7.1f %7.1f  %s"
+                  % (dev.name, dev.cooling[:4], dev.loss_w, tj, tj - amb,
+                     margin, verdict))
         if not rows:
             continue
         # One CSV per case: results/<case>_margins.csv

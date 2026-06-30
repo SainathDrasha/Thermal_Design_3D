@@ -161,27 +161,38 @@ solve, and the whole `sim3d_paraview` tail stay the same.
 
 > The STEP file never leaves your machine — the entire toolchain runs locally.
 
+## Two cooling paths (conduction vs gas) — two different ambients
+
+A sealed module has **two ambients**: the **external coolant** (sea 20 °C / surface
+air 50 °C) that cools the housing outside, and the **internal sealed medium** that
+the components actually sit in (the ~85 °C-spec gas/oil; subsea it tracks the cool
+housing, ~25 °C). Each device is tagged in `config.py` by how it sheds heat
+(`config.GAS_COUPLED`):
+
+- **`cooling = "conduction"`** (power semiconductors): via column → baseplate →
+  external coolant. Referenced to `case.t_inf_c`.
+- **`cooling = "gas"`** (magnetics: inductors, transformer, flyback): **no via**;
+  they reject to the internal medium at `case.t_internal_c` via an internal
+  convection BC (`config.effective_h_internal()`). This is the doc's "Path 2".
+
+This matters because via-coupling *every* device made the magnetics read an
+unrealistic ~30 °C. With the split they sit warmer (~45–55 °C subsea, ~105–115 °C
+surface) — referenced to the warm internal medium, as a real wound part would.
+
 ## Caveat on the numbers (read before trusting the verdicts)
 
-The model now includes **thermal-via coupling** (`config.VIA_COUPLED = True`):
-each device's through-PCB column uses the via-array effective conductivity
-(`config.K_VIA` ≈ 96 W/m·K) instead of bare FR-4. This is the realistic
-bottom-cooled design, and it gives **subsea: all devices PASS (~30–34 °C)** and
-**surface (50 °C air): all FAIL by 7–15 °C at full power → derate to ~270 W**.
-Still keep in mind:
+The model includes **thermal-via coupling** (`config.VIA_COUPLED`) for
+conduction-cooled parts and the **gas path** for magnetics. Result:
+**subsea — all PASS** (semis ~30 °C, magnetics ~45–55 °C); **surface (50 °C air)
+— FAIL at full power → derate to ~270 W**. Keep in mind:
 
-- Set `VIA_COUPLED = False` in `config.py` for the pessimistic
-  top-mount-through-FR-4 worst case (devices jump to hundreds of °C). The via
-  fill fraction (`VIA_FILL_FRACTION = 0.25`) is an `[ASSUMED]` value — adjust to
-  your real via array.
-- One junction limit (125 °C) is applied to every device. Real limits differ
-  (SiC ~175 °C, magnetics/electrolytics often lower) — edit `LIMITS` in
-  `device_report.py` for per-part ratings.
-- The housing is a boundary-condition approximation, not solved geometry — see
-  "The cylindrical housing" above. The absolute surface-case housing temperature
-  is only first-order until the STEP/conjugate model is built.
-
-So the *relative* ranking (which devices and which case are worst) is
-informative; the *absolute* pass/fail is not, until via-coupling is added to the
-FreeCAD geometry. That is a modelling change in `freecad_thermal.py`, separate
-from this visualization layer.
+- The biggest uncertainties are now the **internal medium and its coupling**:
+  `H_INTERNAL_MEDIUM` (oil ~100 vs N2 ~10 W/m²K), `INTERNAL_AREA_FACTOR`, and
+  `case.t_internal_c` — all `[ASSUMED]`. Gas-coupled junction temps are coarse
+  until these are pinned (ideally the internal medium is *solved*, via the STEP
+  conjugate model, not supplied).
+- Via fill fraction (`VIA_FILL_FRACTION = 0.25`) is `[ASSUMED]`; set
+  `VIA_COUPLED = False` for the pessimistic FR-4 worst case.
+- One junction limit (125 °C) for all parts — real limits differ (SiC ~175 °C,
+  magnetics/electrolytics lower); edit `LIMITS` in `device_report.py`.
+- The housing is a boundary-condition approximation, not solved geometry.

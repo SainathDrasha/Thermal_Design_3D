@@ -77,10 +77,14 @@ def board_map(case):
                     va="center", fontsize=7, color="red")
         else:
             over = t > T_J_MAX_C
+            gas = d.cooling == "gas"
             ax.add_patch(Rectangle((x, z), w, h, fc=cmap(norm(t)),
                                    ec=("red" if over else "k"),
-                                   lw=(2.0 if over else 0.8)))
-            txt = "%s\n%.0f W\n%.0f C" % (d.name.replace("_", " "), d.loss_w, t)
+                                   lw=(2.0 if over else 1.0),
+                                   ls=("--" if gas else "-")))
+            tag = "  (gas)" if gas else ""
+            txt = "%s%s\n%.0f W\n%.0f C" % (d.name.replace("_", " "), tag,
+                                           d.loss_w, t)
             ax.text(d.x_center * MM, d.z_center * MM, txt, ha="center",
                     va="center", fontsize=7,
                     color=("white" if norm(t) > 0.6 else "black"))
@@ -89,9 +93,10 @@ def board_map(case):
     ax.set_aspect("equal")
     ax.set_xlabel("board length  x  [mm]")
     ax.set_ylabel("width z [mm]")
-    ax.set_title("SEM 300W -- %s (T_amb %.0f C): device peak temperature "
-                 "(red edge = over %.0f C limit)"
-                 % (case.upper(), t_amb, T_J_MAX_C), fontsize=11)
+    ax.set_title("SEM 300W -- %s (ext %.0f C / int %.0f C): device peak temp "
+                 "(red edge = over %.0f C; dashed = gas-coupled magnetic)"
+                 % (case.upper(), t_amb, CASE_BC[case].t_internal_c, T_J_MAX_C),
+                 fontsize=10.5)
     cb = fig.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap), ax=ax,
                       fraction=0.025, pad=0.01)
     cb.set_label("simulated Tj [C]")

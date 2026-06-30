@@ -117,7 +117,20 @@ class Source:
     x_len: float           # m, footprint length
     z_center: float        # m, across board width
     z_len: float           # m, footprint width
+    # Cooling path:
+    #   "conduction" = bottom-cooled through a thermal-via column to the
+    #                  baseplate -> external coolant (power semiconductors).
+    #   "gas"        = rejects to the internal sealed medium at the internal
+    #                  ambient (magnetics, caps): NO via, convection to the
+    #                  internal environment. (Design doc Path 1 vs Path 2.)
+    cooling: str = "conduction"
     note: str = ""
+
+
+# Devices that reject to the internal sealed medium, not down to the baseplate
+# (the doc's "Path 2"): wound magnetics dump most heat to the surrounding
+# gas/oil, not through a via array. [ASSUMED classification -- adjust to design.]
+GAS_COUPLED = {"buck_inductor", "pfc_inductor", "dcdc_transformer", "flyback_aux"}
 
 
 # Device breakdown within each stage. `frac` = share of that stage's loss;
@@ -145,7 +158,8 @@ _DEVICES = [
 def _build_power_map(operating_point: str = OPERATING_POINT):
     losses = STAGE_LOSSES[operating_point]
     return [Source(name, losses[stage] * frac, xc, xl, zc, zl,
-                   f"{stage} x{frac:.0%} [ASSUMED split]")
+                   cooling=("gas" if name in GAS_COUPLED else "conduction"),
+                   note=f"{stage} x{frac:.0%} [ASSUMED split]")
             for name, stage, frac, xc, xl, zc, zl in _DEVICES]
 
 
@@ -164,17 +178,41 @@ def power_total() -> float:
 class Case:
     name: str
     h: float            # W/m^2.K external convection coefficient
-    t_inf_c: float      # C external/ambient temperature
+    t_inf_c: float      # C EXTERNAL coolant/ambient (sea or surface air)
     desc: str
+    # INTERNAL sealed-medium temperature that gas-coupled parts (magnetics,
+    # caps) reject to. It is really a RESULT of the internal heat balance, but
+    # is supplied here as a bounding input: subsea the medium tracks the cool
+    # housing (~25 C); surface it rises to the ~85 C internal spec. [DOC/ASSUMED]
+    t_internal_c: float = 85.0
 
 
 CASES = {
-    "subsea":  Case("subsea",  100.0, 20.0, "Oil-coupled subsea, continuous primary case"),  # [DOC]
+    "subsea":  Case("subsea",  100.0, 20.0, "Oil-coupled subsea, continuous primary case", t_internal_c=25.0),  # [DOC]
     # External commissioning AIR is 50 C (doc Section 4). The 85 C figure is the
     # INTERNAL sealed-gas temperature, not the external convection ambient -- using
     # 85 C here double-counted it and made the surface case ~35 C too hot. [DOC]
-    "surface": Case("surface",   8.0, 50.0, "Still-air surface commissioning (50 C external air), derated/limited"),  # [DOC]
+    "surface": Case("surface",   8.0, 50.0, "Still-air surface commissioning (50 C external air), derated/limited", t_internal_c=85.0),  # [DOC]
 }
+
+
+# ----------------------------------------------------------------------
+# Internal sealed-medium coupling for gas-coupled parts (doc "Path 2").
+# A gas-coupled device rejects its loss to the internal medium over its real
+# (3-D) surface area, not its tiny PCB footprint -- so, as with the housing, an
+# EFFECTIVE film coefficient on the footprint folds in the area ratio:
+#     h_int_eff = h_medium * (component wetted area / footprint area).
+# Both factors are the most uncertain inputs in the whole model (is the medium
+# N2 gas ~10 W/m2K or oil ~100? how big is each magnetic?), so the gas-coupled
+# junction temperatures are COARSE/bounding. Tune to your design. [ASSUMED]
+# ----------------------------------------------------------------------
+H_INTERNAL_MEDIUM = 100.0      # W/m2.K, internal medium film coeff (oil ~100, N2 ~10)
+INTERNAL_AREA_FACTOR = 5.0     # wetted component area / PCB footprint area
+
+
+def effective_h_internal() -> float:
+    """Effective internal-medium coefficient applied on a gas part's footprint."""
+    return H_INTERNAL_MEDIUM * INTERNAL_AREA_FACTOR
 
 
 # ----------------------------------------------------------------------

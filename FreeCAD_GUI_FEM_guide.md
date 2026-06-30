@@ -157,6 +157,17 @@ only leave through this face. This single-face area-scaling is a stand-in for th
 real cylindrical housing — see "Setting up with a STEP file" to replace it with
 true geometry.
 
+> 🔁 **Two cooling paths.** Power semiconductors are conduction-cooled (via
+> column → baseplate → external coolant, above). **Magnetics** (inductors,
+> transformer, flyback — `config.GAS_COUPLED`) instead reject to the **internal
+> sealed medium**: give them **no via** (bare FR-4 column) and a **second
+> Convection constraint on their PCB-bottom (gas-side) face**, with ambient =
+> the *internal* temperature (`case.t_internal_c`, ~25 °C subsea / 85 °C surface)
+> and the internal-medium coefficient (`config.effective_h_internal()`). The
+> headless script does this automatically; in the GUI add one extra Convection
+> constraint per magnetic. This keeps magnetics referenced to the warm internal
+> environment they live in, not the cold sea.
+
 ---
 
 ## 7. Add the initial temperature
